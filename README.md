@@ -7,7 +7,9 @@ Simplicity. All developers love it, and it makes creating projects easier and fa
 ## The Solution
 I wanted to make creating websites easier and quicker than ever, and still be able to customise my DOM elements and place them exactly where I wanted them. I wanted to use Flexbox and Grid layouts, but didn't want to write countless lines of CSS code to style them to my satisfaction.
 
-So, I created DOMKit, written entirely in JavaScript. It contains a wide range of functions for all your needs and wants for a website, while allowing you to customise these elements as you wish. Flexbox, navigation bars, grid layouts, you name it.
+My ideal solution would be to create functions that could create the displays for me, and allow for me to pass in arguments describing my customisations.
+
+So, I created **DOMKit**, written entirely in JavaScript. It contains a wide range of functions for all your needs and wants for a website, while allowing you to customise these elements as you wish. Flexbox, navigation bars, grid layouts, you name it.
 
 ## Installing DOMKit
 Simply download the 'src' folder from this repository into your code, then add the following line above any `<script>` tags, allowing your HTML page to import the functions.
