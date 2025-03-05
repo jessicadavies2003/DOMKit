@@ -27,4 +27,4 @@ To ensure DOMKit works correctly, try copying and running the following code rig
 
 If it works, you should see the following:
 
-![A light-blue coloured navigation bar with the links "Home" and "About" in black.](Isolated.png "DOMKit Test - Navigation Bar")
+![A light-blue coloured navigation bar with the links "Home" and "About" in black.](working-DOMKit-nav.png "DOMKit Test - Navigation Bar")
