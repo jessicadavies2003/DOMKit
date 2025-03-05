@@ -10,7 +10,7 @@ I wanted to make creating website easier and quicker than ever, and still be abl
 So, I created DOMKit, written entirely in JavaScript. It contains a wide range of functions for all your needs and wants for a website, while allowing you to customise these elements as you wish. Flexbox, navigation bars, grid layouts, you name it.
 
 ## Installing DOMKit
-Simply download this repository into your code, then add the following line above any `<script>` tags, allowing your HTML page to import the functions.
+Simply download the 'src' folder from this repository into your code, then add the following line above any `<script>` tags, allowing your HTML page to import the functions.
 
 ```
 <script src="/path/to/DOMKit/src"></script>
