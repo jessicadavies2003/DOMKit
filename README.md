@@ -1,5 +1,5 @@
 # DOMKit
-Simplifying the creation of essential HTML elements while applying some default styling.
+**Simplifying the creation of essential HTML elements while applying some default styling.**
 
 ## Introduction
 Simplicity. All developers love it, and it makes creating projects easier and faster. I'm exactly the same. If I can find a more simple solution to an issue that creates the same output, of course I'm going straight for the simple solution. Gets the job done, you know?
@@ -15,3 +15,16 @@ Simply download this repository into your code, then add the following line abov
 ```
 <script src="/path/to/DOMKit"></script>
 ```
+
+## Testing DOMKit
+To ensure DOMKit works correctly, try copying and running the following code right underneath the line above:
+
+```
+<script>
+  const myNav = createNavBar({'Home': '', 'About': 'about.html'}, [66, 106, 190]);
+</script>
+```
+
+If it works, you should see the following:
+
+![A light-blue coloured navigation bar with the links "Home" and "About" in black.](Isolated.png "DOMKit Test - Navigation Bar")
