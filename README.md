@@ -13,7 +13,7 @@ So, I created DOMKit, written entirely in JavaScript. It contains a wide range o
 Simply download this repository into your code, then add the following line above any `<script>` tags, allowing your HTML page to import the functions.
 
 ```
-<script src="/path/to/DOMKit"></script>
+<script src="/path/to/DOMKit/src"></script>
 ```
 
 ## Testing
