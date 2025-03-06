@@ -15,16 +15,27 @@ So, I created **DOMKit**, written entirely in JavaScript. It contains a wide ran
 Simply download the 'src' folder from this repository into your code, then add the following line above any `<script>` tags, allowing your HTML page to import the functions.
 
 ```
-<script src="/path/to/DOMKit/src"></script>
+<script src="/path/to/DOMKit/src/[scriptName].js"></script>
 ```
 
 ## Testing
-To ensure DOMKit works correctly, try copying and running the following code right underneath the line above:
+To ensure DOMKit works correctly, create a new HTML file, add the following code and run it:
 
 ```
-<script>
-  const myNav = createNavBar({'Home': '', 'About': 'about.html'}, [66, 106, 190]);
-</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home</title>
+</head>
+<body>
+    <script src="src/elements.js"></script>
+    <script>
+        const myNav = createNavBar({'Home': '', 'About': 'about.html'}, [66, 106, 190]);
+    </script>
+</body>
+</html>
 ```
 
 If it works, you should see the following:
