@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="index.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home</title>
+</head>
+<body>
+    <div id="gridWrapper"></div>
+
+    <script src="../src/displays.js"></script>
+    <script>
+        const myGrid = createGrid(3, [0, 128, 0], [
+            ["box1", "box1", "box1", "box3"],
+            ["box2", "box2", "box2", "box3"]
+        ], "10px", "100px", "100px", parent="gridWrapper");
+    </script>
+</body>
+</html>
