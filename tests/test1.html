@@ -7,9 +7,15 @@
 </head>
 <body>
     <div id="gridWrapper"></div>
+    <div id="flexboxWrapper">
+        <h1 id="heading">Hello world</h1>
+        <p id="text">This is a test</p>
+        <button id="submit">I Do Nothing</button>
+    </div>
 
     <script src="../src/displays.js"></script>
     <script>
+        const myFlexbox = createFlexbox("column", ["heading", "text", "submit"], parent="flexboxWrapper");
         const myGrid = createGrid(3, [0, 128, 0], [
             ["box1", "box1", "box1", "box3"],
             ["box2", "box2", "box2", "box3"]

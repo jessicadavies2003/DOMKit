@@ -6,15 +6,12 @@
     <title>home</title>
 </head>
 <body>
-    <div id="flexboxWrapper">
-        <h1 id="heading">Hello world</h1>
-        <p id="text">This is a test</p>
-        <button id="submit">I Do Nothing</button>
-    </div>
+    <button id="click-me">Click me!</button>
 
-    <script src="../src/displays.js"></script>
+    <script src="../src/styles.js"></script>
     <script>
-        const myFlexbox = createFlexbox("column", ["heading", "text", "submit"], parent="flexboxWrapper");
+        const element = document.getElementById("click-me")
+        gradientBG(element, "90deg", "linear", [[128, 0, 0], [0, 128, 0], [0, 0, 128]]);
     </script>
 </body>
 </html>
