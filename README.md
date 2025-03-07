@@ -41,3 +41,7 @@ To ensure DOMKit works correctly, create a new HTML file inside the directory of
 If it works, you should see the following:
 
 ![A light-blue coloured navigation bar with the links "Home" and "About" in black.](imgs/working-DOMKit-nav.png "DOMKit Test - Navigation Bar")
+
+## Getting Started with DOMKit
+
+If you are unsure where to begin with either getting started, or experimenting with DOMKit's range of functions, check the `tests` folder for some test files for you to pay around with and try out.
