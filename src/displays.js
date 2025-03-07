@@ -9,7 +9,17 @@
  * @returns The HTML Div Element containing the flexbox
 */
 const createFlexbox = (flexDirection, includedElemIDs, hideOverflow=true, centered=true, parent="body") => {
-    const myDiv = document.createElement("div");
+    let myDiv;
+    if (parent === "body") {
+        myDiv = document.body;
+    } else {
+        myDiv = document.getElementById(parent);
+    }
+
+    for (let i = 0; i < includedElemIDs.length; i++) {
+        myDiv.appendChild(document.getElementById(includedElemIDs[i]));
+    }
+
     myDiv.style.display = "flex";
     myDiv.style.flexDirection = flexDirection;
     myDiv.style.overflow = hideOverflow ? "hidden" : "visible";
@@ -19,11 +29,6 @@ const createFlexbox = (flexDirection, includedElemIDs, hideOverflow=true, center
         myDiv.style.justifyContent = "center";
     }
 
-    if (parent === "body") {
-        document.body.appendChild(myDiv);
-    } else {
-        document.getElementById(parent).appendChild(myDiv);
-    }
     return myDiv;
 }
 
@@ -47,7 +52,13 @@ const createFlexbox = (flexDirection, includedElemIDs, hideOverflow=true, center
  * ], "10px", "100px", "100px");
 */
 const createGrid = (numBoxes, boxColour, gridTemplateArea, gap, width, height, parent="body") => {
-    const myDiv = document.createElement("div");
+    let myDiv;
+    if (parent === "body") {
+        myDiv = document.body;
+    } else {
+        myDiv = document.getElementById(parent);
+    }
+
     myDiv.style.display = "grid";
     myDiv.style.gridTemplateColumns = `${width} `.repeat(gridTemplateArea[0].length);
     myDiv.style.gridTemplateRows = `${height} `.repeat(gridTemplateArea.length);
@@ -69,10 +80,5 @@ const createGrid = (numBoxes, boxColour, gridTemplateArea, gap, width, height, p
     myDiv.style.gridTemplateAreas = gridTemplateAreaStr;
     myDiv.style.gap = gap;
 
-    if (parent === "body") {
-        document.body.appendChild(myDiv);
-    } else {
-        document.getElementById(parent).appendChild(myDiv);
-    }
     return myDiv;
 }
