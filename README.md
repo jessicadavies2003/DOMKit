@@ -44,4 +44,4 @@ If it works, you should see the following:
 
 ## Getting Started with DOMKit
 
-If you are unsure where to begin with either getting started, or experimenting with DOMKit's range of functions, check the `tests` folder for some test files for you to pay around with and try out.
+If you are unsure where to begin with either getting started, or experimenting with DOMKit's range of functions, check the `tests` folder for some test files for you to play around with and try out.
