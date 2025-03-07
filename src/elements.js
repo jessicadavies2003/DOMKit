@@ -33,10 +33,10 @@ const createVideoEl = (filepath, parent="body", controls=true) => {
 }
 
 /**
- * Creates and returns a nav element, styled to be a navigation bar, and adds it to the DOM.
+ * Creates and returns a nav element, with default styling for a navigation bar, and adds it to the DOM.
  *
  * @param {Object} links An object containing data about each link of the nav bar, keys being the name and values being the filepaths for said name.
- * @param {List} bgColour A list containinng three values: red, green, blue. For the background colour of the navigation bar.
+ * @param {List} bgColour A list containing three values: red, green, blue. For the background colour of the navigation bar.
  * @param {String} textColour (Optional) A string indicating what colour the text should be. Defaulted to "Black".
  * @param {String} resetCSS (Optional) Indicates whether or not the cssReset() function should be called. Defaulted to "true".
  * @returns The HTML Nav Element
