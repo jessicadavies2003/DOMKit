@@ -1,5 +1,5 @@
 # DOMKit - V1.0
-**A HTML elements, styles and displays library that simplifies the creation of HTML elements while applying some default styling.**
+**A HTML elements library that simplifies the creation of HTML elements while applying some default styling.**
 
 ## Introduction
 Simplicity. All developers love it, and it makes creating projects easier and faster. I'm exactly the same. If I can find a more simple solution to an issue that creates the same output, of course I'm going straight for the simple solution. Gets the job done, you know?
