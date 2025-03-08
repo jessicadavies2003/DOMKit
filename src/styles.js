@@ -1,15 +1,18 @@
+// GLOBAL VARS  //
+const style = document.createElement("style");
+
 /**
- * Centers a given DIV element. Does not return this element.
+ * Uses flexbox to center a given element. Does not return this element.
  *
- * @param {HTMLDivElement} element The DIV element to be centered
- * @param {String} rowOrColumn Determines if the elements inside the DIV element should be horizontal or vertical.
+ * @param {HTMLElement} element The element to be centered.
 */
-const centerDiv = (element, rowOrColumn) => {
-    element.style.display = "flex";
-    element.style.flexDirection = rowOrColumn;
-    element.style.alignItems = "center";
-    element.style.justifyContent = "center";
-    element.style.textAlign = "center";
+const centerEl = (element) => {
+    style.textContent += `
+#${element.id} {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}`;
 }
 
 /**
@@ -18,12 +21,22 @@ const centerDiv = (element, rowOrColumn) => {
  * @param {HTMLElement} element The HTML element where the gradient will be applied, any type of HTML element will suffice.
  * @param {String} direction The direction of the gradient in `degrees`.
  * @param {String} gradientType Determines the gradient type to be used.
- * @param {Array} colours A list of list, where each list contains RGB values for each colour, allowing more than 2 colours.
+ * @param {Array} colours A list of lists, where each list contains RGB values for each colour, allowing more than 2 colours.
+ * @param {String} gradientType Colour of the text inside the element. Defaulted to 'black'
  * @example
- * gradientBG(element, "90deg", "linear", [[128, 0, 0], [0, 128, 0], [0, 0, 128]]);
+ * gradientBG(element, "90deg", "linear", [[128, 0, 0], [0, 128, 0], [0, 0, 128]], "white");
 */
-const gradientBG = (element, direction, gradientType, colours) => {
+const gradientBG = (element, direction, gradientType, colours, textColour="black") => {
     if (gradientType === "linear") {
-        element.style.background = `linear-gradient(${direction}, ${colours})`;
+        let funcCall = `linear-gradient(${direction}`;
+        colours.forEach((colour) => {
+            funcCall += ", ";
+            funcCall += `rgb(${colour[0]}, ${colour[1]}, ${colour[2]})`;
+        });
+        funcCall = funcCall + ")";
+
+        style.textContent += `
+#${element.id} { background: ${funcCall}; color: ${textColour} }`;
+        document.body.appendChild(style);
     }
 }

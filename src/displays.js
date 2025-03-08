@@ -35,9 +35,9 @@ const createFlexbox = (flexDirection, includedElemIDs, hideOverflow=true, center
 /**
  * Creates and returns a grid container.
  *
- * @param {Number} numBoxes A list containing an ID for each element that will be added within the new DIV.
+ * @param {Number} numBoxes The number of boxes that should be created inside the grid.
  * @param {List} boxColour A list containing three values: red, green, blue. For the background colour of each box element.
- * @param {ArrayLike} gridTemplateArea A list, where each list inside the main list represents a row for the grid-template-area value. An `i`th box will have an ID of `box{i}`.
+ * @param {Array} gridTemplateArea A list, where each list inside the main list represents a row for the grid-template-area value. An `i`th box will have an ID of `box{i}`.
  * @param {String} gap Sets the distance between all box elements in the grid.
  * @param {String} width Width of each box that will be created and stored in the main DIV.
  * @param {String} height Height of each box that will be created and stored in the main DIV.
