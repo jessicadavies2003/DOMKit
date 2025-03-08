@@ -1,3 +1,5 @@
+![The Official DOMKit Logo](imgs/DOMKit-Logo.png "DOMKit Logo")
+
 # DOMKit - V1.0
 **A HTML elements library that simplifies the creation of HTML elements while applying some default styling.**
 
