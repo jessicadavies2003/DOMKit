@@ -1,5 +1,4 @@
-![The Official DOMKit Logo](imgs/DOMKit-Logo.png "DOMKit Logo")
-<img src="imgs/DOMKit-Logo.png" alt="The Official DOMKit Logo" width="200"/>
+<img src="imgs/DOMKit-Logo.png" alt="The Official DOMKit Logo" width="400"/>
 
 # DOMKit - V1.0
 **A HTML elements library that simplifies the creation of HTML elements while applying some default styling.**
