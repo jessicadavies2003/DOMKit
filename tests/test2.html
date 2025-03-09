@@ -6,12 +6,16 @@
     <title>home</title>
 </head>
 <body>
+    <h1 id="text">My Text</h1>
     <button id="click-me">Click me!</button>
 
     <script src="../src/styles.js"></script>
     <script>
-        const element = document.getElementById("click-me");
-        gradientBG(element, "90deg", "linear", [[128, 0, 0], [0, 128, 0], [0, 0, 128]], "white");
+        const txtElement = document.getElementById("text");
+        const btnElement = document.getElementById("click-me");
+
+        textGradient(txtElement, "90deg", [[128, 0, 0], [0, 128, 0], [0, 0, 128]]);
+        gradientBG(btnElement, "90deg", "linear", [[128, 0, 0], [0, 128, 0], [0, 0, 128]], "white");
     </script>
 </body>
 </html>
