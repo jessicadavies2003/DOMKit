@@ -2,13 +2,13 @@
  * Creates and returns a flexbox container.
  *
  * @param {String} flexDirection The flex direction of the container. Either 'row' or 'column'.
- * @param {ArrayLike} includedElemIDs A list containing an ID for each element included in the flexbox. The function assumes you have created these elements in your HTML code.
  * @param {Boolean} hideOverflow Determines if any overflowing elements should be hidden. Defaulted to 'true'.
+ * @param {Boolean} textCentered Determines if all text elements should be centered. Defaulted to 'true'.
  * @param {Boolean} centered Determines if all elements in the flexbox should be centered. Defaulted to 'true'.
  * @param {String} parent ID of the parent element where the video should be added to. Defaulted to 'body'.
  * @returns The HTML Div Element containing the flexbox
 */
-const createFlexbox = (flexDirection, includedElemIDs, hideOverflow=true, centered=true, parent="body") => {
+const createFlexbox = (flexDirection, textCentered=true, hideOverflow=true, centered=true, parent="body") => {
     let myDiv;
     if (parent === "body") {
         myDiv = document.body;
@@ -16,14 +16,13 @@ const createFlexbox = (flexDirection, includedElemIDs, hideOverflow=true, center
         myDiv = document.getElementById(parent);
     }
 
-    for (let i = 0; i < includedElemIDs.length; i++) {
-        myDiv.appendChild(document.getElementById(includedElemIDs[i]));
-    }
-
     myDiv.style.display = "flex";
     myDiv.style.flexDirection = flexDirection;
     myDiv.style.overflow = hideOverflow ? "hidden" : "visible";
 
+    if (textCentered) {
+        myDiv.style.textAlign = "center";
+    }
     if (centered) {
         myDiv.style.alignItems = "center";
         myDiv.style.justifyContent = "center";

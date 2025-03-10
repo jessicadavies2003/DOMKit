@@ -11,23 +11,25 @@ const cssReset = () => {
  * Creates and returns a video element, and adds it to the DOM.
  *
  * @param {String} filepath The filepath of the video.
- * @param {String} parent ID of the parent element where the video should be added to. Defaulted to 'body'.
  * @param {Boolean} controls Determines whether or not the user can control the video by playing, pausing, etc. Defaulted to 'true'.
+ * @param {String} parent ID of the parent element where the video should be added to. Defaulted to 'body'.
  * @returns The HTML Video Element
 */
-const createVideoEl = (filepath, parent="body", controls=true) => {
+const createVideoEl = (filepath, controls=true, parentID="body") => {
+    let myDiv;
+    if (parentID === "body") {
+        myDiv = document.body;
+    } else {
+        myDiv = document.getElementById(parentID);
+    }
+
     const vid = document.createElement("video");
     vid.controls = controls;
 
     const source = document.createElement("source");
     source.src = filepath;
     vid.appendChild(source);
-
-    if (parent === "body") {
-        document.body.appendChild(vid);
-    } else {
-        document.getElementById(parent).appendChild(vid);
-    }
+    myDiv.appendChild(vid);
 
     return vid;
 }
@@ -41,7 +43,7 @@ const createVideoEl = (filepath, parent="body", controls=true) => {
  * @param {String} resetCSS (Optional) Indicates whether or not the cssReset() function should be called. Defaulted to "true".
  * @returns The HTML Nav Element
  * @example 
- * // creates a light-blue background on a small nav bar, and makes the text black
+ * // creates a navigation bar with a light-blue background, and makes the text black
  * const myNav = createNavBar({'Home': '', 'About': 'about.html'}, [66, 106, 190], "black");
 */
 const createNavBar = (links, bgColour, textColour="black", resetCSS=true) => {
@@ -70,4 +72,48 @@ const createNavBar = (links, bgColour, textColour="black", resetCSS=true) => {
 
     document.body.appendChild(nav);
     return nav;
+}
+
+/**
+ * Creates and returns a table element, and adds it to the DOM.
+ *
+ * @param {Array} headers A list containing the table headers.
+ * @param {Array} rowData A list of lists, where each list represents a row of the table.
+ * @param {String} parent ID of the parent element where the table should be added to. Defaulted to 'body'.
+ * @returns The HTML Table Element
+ * @example
+ * const myTable = createTable(["header1", "header2"], [["item1-header1", "item1-header2"], ["item2-header1", "item2-header2"]]);
+*/
+const createTable = (headers, rowData, parent="body") => {
+    let myDiv;
+    if (parent === "body") {
+        myDiv = document.body;
+    } else {
+        myDiv = document.getElementById(parent);
+    }
+
+    const table = document.createElement("table");
+
+    // headers
+    const headerRow = document.createElement("tr");
+    for (let i = 0; i < headers.length; i++) {
+        const headerEl = document.createElement("th");
+        headerEl.textContent = headers[i];
+        headerRow.appendChild(headerEl);
+    }
+    table.appendChild(headerRow);
+
+    // table items
+    for (let i = 0; i < rowData.length; i++) {
+        const rowEl = document.createElement("tr");
+        rowData[i].forEach((item) => {
+            const currItemEl = document.createElement("td");
+            currItemEl.textContent = item;
+            rowEl.appendChild(currItemEl);
+        })
+        table.appendChild(rowEl);
+    };
+
+    myDiv.appendChild(table);
+    return table;
 }

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home</title>
+</head>
+<body>
+    <div id="flexboxWrapper">
+        <h1 id="heading">Hello world</h1>
+        <p id="text">This is a test</p>
+        <button id="submit">I Do Nothing</button>
+    </div>
+    <div id="gridWrapper"></div>
+
+    <script src="../src/displays.js"></script>
+    <script>
+        const myFlexbox = createFlexbox("column", textCentered=true, parent="flexboxWrapper");
+        const myGrid = createGrid(3, [0, 128, 0], [
+            ["box1", "box1", "box1", "box3"],
+            ["box2", "box2", "box2", "box3"]
+        ], "10px", "100px", "100px", parent="gridWrapper");
+    </script>
+</body>
+</html>
