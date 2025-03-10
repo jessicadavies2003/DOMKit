@@ -21,7 +21,7 @@ Download the `src` folder from this repository into your code, then add the foll
 ```
 
 ## Testing
-To ensure DOMKit works correctly, create a new HTML file inside the directory of the downloaded 'src' file, add the following code and run it:
+To ensure DOMKit works correctly, create a new HTML file just outside the directory of the downloaded 'src' file, add the following code and run it:
 
 ```
 <!DOCTYPE html>
