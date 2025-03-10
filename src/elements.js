@@ -149,6 +149,7 @@ const createDropdown = (dropdownName, options, label, parent="body") => {
         dropdown.appendChild(optionEl);
     });
 
+    myDiv.appendChild(lbl);
     myDiv.appendChild(dropdown);
     return dropdown;
 }
