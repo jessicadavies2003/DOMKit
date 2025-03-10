@@ -35,7 +35,7 @@ const createVideoEl = (filepath, controls=true, parentID="body") => {
 }
 
 /**
- * Creates and returns a nav element, with default styling for a navigation bar, and adds it to the DOM.
+ * Creates and returns a nav element, with default styling for a navigation bar, and adds it to the top of the DOM.
  *
  * @param {Object} links An object containing data about each link of the nav bar, keys being the name and values being the filepaths for said name.
  * @param {List} bgColour A list containing three values: red, green, blue. For the background colour of the navigation bar.
@@ -70,7 +70,7 @@ const createNavBar = (links, bgColour, textColour="black", resetCSS=true) => {
         nav.appendChild(linkEl);
     });
 
-    document.body.appendChild(nav);
+    document.body.prepend(nav);
     return nav;
 }
 
@@ -116,4 +116,39 @@ const createTable = (headers, rowData, parent="body") => {
 
     myDiv.appendChild(table);
     return table;
+}
+
+/**
+ * Creates and returns a dropdown element, and adds it to the DOM.
+ *
+ * @param {String} dropdownName The name of the dropdown.
+ * @param {Array} options A list of strings, where each string represents an option for the dropdown menu.
+ * @param {String} label The string to label the dropdown menu.
+ * @param {String} parent ID of the parent element where the table should be added to. Defaulted to 'body'.
+ * @returns The HTML Dropdown Element
+ * @example
+ * const cars = createDropdown("cars", ["Volkswagen", "Kia", "Mercedes-Benz"], "Select your favourite car brand.");
+*/
+const createDropdown = (dropdownName, options, label, parent="body") => {
+    let myDiv;
+    if (parent === "body") {
+        myDiv = document.body;
+    } else {
+        myDiv = document.getElementById(parent);
+    }
+
+    const dropdown = document.createElement("select");
+    dropdown.name = dropdownName; dropdown.id = dropdownName;
+    const lbl = document.createElement("label");
+    lbl.setAttribute("for", dropdownName);
+    lbl.textContent = label;
+
+    options.forEach((option) => {
+        const optionEl = document.createElement("option");
+        optionEl.value = option; optionEl.textContent = option;
+        dropdown.appendChild(optionEl);
+    });
+
+    myDiv.appendChild(dropdown);
+    return dropdown;
 }
