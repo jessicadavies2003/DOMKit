@@ -79,12 +79,13 @@ const createNavBar = (links, bgColour, textColour="black", resetCSS=true) => {
  *
  * @param {Array} headers A list containing the table headers.
  * @param {Array} rowData A list of lists, where each list represents a row of the table.
+ * @param {String} hasBorders Determines if the table should have borders. Defaulted to 'true'.
  * @param {String} parent ID of the parent element where the table should be added to. Defaulted to 'body'.
  * @returns The HTML Table Element
  * @example
  * const myTable = createTable(["header1", "header2"], [["item1-header1", "item1-header2"], ["item2-header1", "item2-header2"]]);
 */
-const createTable = (headers, rowData, parent="body") => {
+const createTable = (headers, rowData, hasBorders=true, parent="body") => {
     let myDiv;
     if (parent === "body") {
         myDiv = document.body;
@@ -113,6 +114,10 @@ const createTable = (headers, rowData, parent="body") => {
         })
         table.appendChild(rowEl);
     };
+
+    if (hasBorders) {
+        table.style.border = "1px solid black";
+    }
 
     myDiv.appendChild(table);
     return table;
@@ -152,4 +157,46 @@ const createDropdown = (dropdownName, options, label, parent="body") => {
     myDiv.appendChild(lbl);
     myDiv.appendChild(dropdown);
     return dropdown;
+}
+
+/**
+ * Creates and returns a form element, and adds it to the DOM.
+ *
+ * @param {String} title An external page where the data should be sent. Usually a PHP page
+ * @param {String} actionPage An external page where the data should be sent. Usually a PHP page.
+ * @param {Object} inputData An object containing input data for the form. Keys are the labels, and the values are the type of input.
+ * @param {String} parent ID of the parent element where the form should be added to. Defaulted to 'body'.
+ * @returns The HTML Form Element
+ * @example
+ * const signInForm = createForm("action.php", {"Username": "text", "Password": "password"});
+*/
+const createForm = (title, actionPage, inputData, parent="body") => {
+    let myDiv;
+    if (parent === "body") {
+        myDiv = document.body;
+    } else {
+        myDiv = document.getElementById(parent);
+    }
+
+    const form = document.createElement("form");
+    form.action = actionPage;
+    const titleElement = document.createElement("h1");
+    titleElement.textContent = title;
+    form.appendChild(titleElement);
+
+    const inputLabels = Object.keys(inputData);
+    inputLabels.forEach((lbl) => {
+        const lblElement = document.createElement("label");
+        lblElement.textContent = lbl;
+        const inputElement = document.createElement("input");
+        inputElement.type = inputData[lbl];
+        inputElement.id = lbl.toLowerCase();
+        lblElement.setAttribute("for", lbl.toLowerCase());
+
+        form.appendChild(lblElement);
+        form.appendChild(inputElement);
+    })
+
+    myDiv.appendChild(form);
+    return form;
 }

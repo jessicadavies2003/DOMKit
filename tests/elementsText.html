@@ -8,12 +8,13 @@
 <body>
     <div id="table-wrapper"></div>
     <div id="cars-wrapper"></div>
+    <div id="form-wrapper"></div>
 
     <script src="../src/elements.js"></script>
     <script>
         const myNav = createNavBar({'Home': '', 'About': ''}, [66, 106, 190], "black");
         const myTable = createTable(["header1", "header2"], [["item1-header1", "item1-header2"], ["item2-header1", "item2-header2"]], parent="table-wrapper");
-        const cars = createDropdown("cars", ["Volkswagen", "Kia", "Mercedes-Benz"], "Select your favourite car brand.", parent="cars-wrapper");
+        const carsDropdown = createDropdown("cars", ["Volkswagen", "Kia", "Mercedes-Benz"], "Select your favourite car brand.", parent="cars-wrapper");
     </script>
 </body>
 </html>
