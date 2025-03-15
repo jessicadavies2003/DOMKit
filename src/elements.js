@@ -168,7 +168,7 @@ const createDropdown = (dropdownName, options, label, parent="body") => {
  * @param {String} parent ID of the parent element where the form should be added to. Defaulted to 'body'.
  * @returns The HTML Form Element
  * @example
- * const signInForm = createForm("Login", "action.php", {"Username": "text", "Password": "password"});
+ * const signInForm = createForm("action.php", {"Username": "text", "Password": "password"});
 */
 const createForm = (title, actionPage, inputData, parent="body") => {
     let myDiv;
