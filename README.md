@@ -48,6 +48,8 @@ If it works, you should see the following:
 
 If you are unsure where to begin with either getting started, or experimenting with DOMKit's range of functions, check the `tests` folder for some test files for you to play around with and try out.
 
+If you would instead like to learn about DOMKit's functionality, read the docs here (will be linked once completed.)
+
 ## Creator
 
 Jessica Davies
