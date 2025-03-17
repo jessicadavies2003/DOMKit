@@ -51,7 +51,8 @@ If it works, you should see the following:
 
 If you are unsure where to begin with either getting started, or experimenting with DOMKit's range of functions, check the `tests` folder for some test files for you to play around with and try out.
 
-If you would like to learn about DOMKit's functionality, read the docs <a href="https://jessicadavies2003.github.io/projects/domkit-docs/">here</a>.
+If you would like to learn about DOMKit's functionality, read the docs <a href="https://jessicadavies2003.github.io/projects/domkit-docs/" target="_blank">here</a> (opens in a 
+new tab).
 
 ## Creator
 
