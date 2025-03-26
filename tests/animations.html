@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="animations.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="mySquare"></div>
+
+    <script src="../src/styles.js"></script>
+    <script src="../src/animations.js"></script>
+
+    <script>
+        const mySquare = document.getElementById("mySquare");
+        centerEl(mySquare);
+        rotateAnimation("mySquare", "rotating", "5s", 360, Infinity);
+    </script>
+</body>
+</html>
