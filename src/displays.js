@@ -2,13 +2,13 @@
  * Creates and returns a flexbox container.
  *
  * @param {String} flexDirection The flex direction of the container. Either 'row' or 'column'.
- * @param {Boolean} hideOverflow Determines if any overflowing elements should be hidden. Defaulted to 'true'.
  * @param {Boolean} textCentered Determines if all text elements should be centered. Defaulted to 'true'.
- * @param {Boolean} centered Determines if all elements in the flexbox should be centered. Defaulted to 'true'.
+ * @param {Boolean} hideOverflow Determines if any overflowing elements should be hidden. Defaulted to 'true'.
+ * @param {Boolean} elemCentered Determines if all elements in the flexbox should be centered. Defaulted to 'true'.
  * @param {String} parent ID of the parent element where the video should be added to. Defaulted to 'body'.
  * @returns The HTML Div Element containing the flexbox
 */
-const createFlexbox = (flexDirection, textCentered=true, hideOverflow=true, centered=true, parent="body") => {
+const createFlexbox = (flexDirection, textCentered = true, hideOverflow = true, elemCentered = true, parent = "body") => {
     let myDiv;
     if (parent === "body") {
         myDiv = document.body;
@@ -23,7 +23,7 @@ const createFlexbox = (flexDirection, textCentered=true, hideOverflow=true, cent
     if (textCentered) {
         myDiv.style.textAlign = "center";
     }
-    if (centered) {
+    if (elemCentered) {
         myDiv.style.alignItems = "center";
         myDiv.style.justifyContent = "center";
     }
@@ -50,7 +50,7 @@ const createFlexbox = (flexDirection, textCentered=true, hideOverflow=true, cent
  *      ["box2", "box3", "box3"]
  * ], "10px", "100px", "100px");
 */
-const createGrid = (numBoxes, boxColour, gridTemplateArea, gap, width, height, parent="body") => {
+const createGrid = (numBoxes, boxColour, gridTemplateArea, gap, width, height, parent = "body") => {
     let myDiv;
     if (parent === "body") {
         myDiv = document.body;
@@ -62,7 +62,7 @@ const createGrid = (numBoxes, boxColour, gridTemplateArea, gap, width, height, p
     myDiv.style.gridTemplateColumns = `${width} `.repeat(gridTemplateArea[0].length);
     myDiv.style.gridTemplateRows = `${height} `.repeat(gridTemplateArea.length);
 
-    for (let i = 1; i < numBoxes+1; i++) {
+    for (let i = 1; i < numBoxes + 1; i++) {
         const newEl = document.createElement("div");
         const elID = `box${i}`;
         newEl.id = elID;
