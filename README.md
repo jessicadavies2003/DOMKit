@@ -9,7 +9,7 @@ Simplicity. All developers love it, and it makes creating projects easier and fa
 ## The Goal
 I wanted to make creating websites easier and quicker than ever, and still be able to customise my DOM elements and place them exactly where I wanted them. I wanted to use Flexbox and Grid layouts, but didn't want to write countless lines of CSS code to style them to my satisfaction.
 
-As well as this, many developers hate using CSS due to the amount of lines you'd need to write for small changes to a webpage's layout.
+As well as this, many developers hate using CSS for many reasons, including the amount of lines you'd need for, say, responsiveness for example.
 
 ## The Solution
 My ideal solution would be to create functions that could create the displays for me, and allow me to pass in arguments describing my customisations.
