@@ -7,15 +7,19 @@
     <title>Document</title>
 </head>
 <body>
-    <div id="mySquare"></div>
+    <div class="elements" id="mySquare"></div>
+    <h1 class="elements" id="myText">Hello World</h1>
 
     <script src="../src/styles.js"></script>
     <script src="../src/animations.js"></script>
 
     <script>
-        const mySquare = document.getElementById("mySquare");
-        centerEl(mySquare);
-        rotateAnimation("mySquare", "rotating", "5s", 360, Infinity);
+        const myElements = document.getElementsByClassName("elements");
+        for (let i = 0; i < myElements.length; i++) {
+            centerEl(myElements.item(i));
+        }
+        rotateAnimation("mySquare", "5s", 360, Infinity, "linear");
+        slideInText("myText", "left", "2s", "easeOut");
     </script>
 </body>
 </html>
