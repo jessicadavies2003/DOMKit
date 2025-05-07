@@ -1,3 +1,12 @@
+let style;
+if (document.getElementById("webStyle")) {
+    style = document.getElementById("webStyle");
+} else {
+    style = document.createElement("style");
+    style.id = "webStyle";
+    document.head.appendChild(style);
+}
+
 /**
  * Resets the browser's padding and margin values, so the HTML looks the same on all browsers.
 */
@@ -162,13 +171,13 @@ const createDropdown = (dropdownName, options, label, parent="body") => {
 /**
  * Creates and returns a form element, and adds it to the DOM.
  *
- * @param {String} title An external page where the data should be sent. Usually a PHP page
+ * @param {String} title The name of the form element.
  * @param {String} actionPage An external page where the data should be sent. Usually a PHP page.
  * @param {Object} inputData An object containing input data for the form. Keys are the labels, and the values are the type of input.
  * @param {String} parent ID of the parent element where the form should be added to. Defaulted to 'body'.
  * @returns The HTML Form Element
  * @example
- * const signInForm = createForm("action.php", {"Username": "text", "Password": "password"});
+ * const signInForm = createForm("signIn", "action.php", {"Username": "text", "Password": "password"});
 */
 const createForm = (title, actionPage, inputData, parent="body") => {
     let myDiv;
@@ -199,4 +208,94 @@ const createForm = (title, actionPage, inputData, parent="body") => {
 
     myDiv.appendChild(form);
     return form;
+}
+
+/**
+ * Creates and returns a DIV element for a light and dark mode toggle switch, and adds it to the DOM.
+ *
+ * @param {String} width The width of the element. Height will be calculated using this value.
+ * @param {List} toggleColour A list containing three values: red, green, blue. For the background colour of the toggle.
+ * @param {List} switchColour A list containing three values: red, green, blue. For the colour of the toggle switch.
+ * @param {Object} themes An object, where keys are `light` and `dark`, and values
+ * @param {String} parentID ID of the parent element where the form should be added to. Defaulted to `body`.
+ * @returns A HTML DIV Element containing the toggle switch.
+ * @example
+ * const toggleWrapper = createToggle("100px", [128, 128, 128], [255, 255, 255], {'light': [[0, 0, 0], [255, 255, 255]], 'dark': [[255, 255, 255], [37, 37, 38]]});
+*/
+const createToggle = (width, toggleColour, switchColour, themes, parentID="body") => {
+    let myDiv;
+    if (parent === "body") {
+        myDiv = document.body;
+    } else {
+        myDiv = document.getElementById(parentID);
+    }
+
+    const toggleWrapper = document.createElement("div");
+    toggleWrapper.style.width = width;
+    toggleWrapper.style.height = `calc(${width} / 3)`;
+    toggleWrapper.style.backgroundColor = `rgb(${toggleColour[0]}, ${toggleColour[1]}, ${toggleColour[2]})`;
+    toggleWrapper.style.borderRadius = "30px";
+    toggleWrapper.style.padding = "5px";
+
+    const toggle = document.createElement("div");
+    toggle.style.width = `calc(${width} / 3)`;
+    toggle.style.height = `calc(${width} / 3)`;
+    toggle.style.backgroundColor = `rgb(${switchColour[0]}, ${switchColour[1]}, ${switchColour[2]})`;
+    toggle.style.borderRadius = "30px";
+
+    style.textContent += `
+@keyframes slideLeft {
+    from {
+        transform: translateX(calc(${width} / 1.5));
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+@keyframes slideRight {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(calc(${width} / 1.5));
+    }
+}
+    
+.slideLeftClass {
+    animation: slideLeft 200ms linear 1;
+    transform: translateX(0);
+}
+
+.slideRightClass {
+    animation: slideRight 200ms linear 1;
+    transform: translateX(calc(${width} / 1.5));
+}`;
+
+    let lightThemeTxt = themes['light'][0];
+    let lightThemeBg = themes['light'][1];
+    let darkThemeTxt = themes['dark'][0];
+    let darkThemeBg = themes['dark'][1];
+
+    let isLight = true;
+    toggleWrapper.addEventListener("click", () => {
+        if (isLight) {
+            toggle.classList.add("slideRightClass");
+            toggle.classList.remove("slideLeftClass");
+
+            document.body.style.backgroundColor = `rgb(${darkThemeBg[0]}, ${darkThemeBg[1]}, ${darkThemeBg[2]})`;
+            document.body.style.color = `rgb(${darkThemeTxt[0]}, ${darkThemeTxt[1]}, ${darkThemeTxt[2]})`;
+            isLight = false;
+        } else {
+            toggle.classList.remove("slideRightClass");
+            toggle.classList.add("slideLeftClass");
+
+            document.body.style.backgroundColor = `rgb(${lightThemeBg[0]}, ${lightThemeBg[1]}, ${lightThemeBg[2]})`;
+            document.body.style.color = `rgb(${lightThemeTxt[0]}, ${lightThemeTxt[1]}, ${lightThemeTxt[2]})`;
+            isLight = true;
+        }
+    })
+
+    toggleWrapper.appendChild(toggle);
+    myDiv.appendChild(toggleWrapper);
+    return toggleWrapper;
 }

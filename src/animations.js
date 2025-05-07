@@ -1,10 +1,10 @@
 let style;
-if (!document.getElementById("webStyle")) {
+if (document.getElementById("webStyle")) {
+    style = document.getElementById("webStyle");
+} else {
     style = document.createElement("style");
     style.id = "webStyle";
     document.head.appendChild(style);
-} else {
-    style = document.getElementById("webStyle");
 }
 
 const timingFunctions = {
@@ -32,7 +32,8 @@ const rotateAnimation = (elementID, duration, degrees, iterationCount, timingFun
         iterationCount = "infinite";
     }
     
-    let keyframesStyling = `@keyframes ${animationName} {
+    let keyframesStyling = `
+@keyframes ${animationName} {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(${degrees}deg); }
 }
@@ -77,4 +78,61 @@ const slideInText = (elementID, direction, duration, timingFunction, animationNa
 }`
 
     style.textContent += keyframesStyling;
+}
+
+/**
+ * Adds a typing animation to the inner text of a given HTML element.
+ *
+ * @param {HTMLElement} elementID ID of the HTML element where the effect will be applied, any type of HTML element will suffice.
+ * @param {String} fontSize The size of the text's font.
+ * @param {String} bgColour The background colour of either the parent element, or website `body`.
+ * @param {String} isLooped Determines if the typing animation will loop continuously.
+ * @param {String} typingMiliseconds Time (in miliseconds) between each character being "typed".
+ * @example
+ * typingAnimation("myText", "50px", [255, 255, 255], true, 250);
+*/
+const typingAnimation = (elementID, fontSize, bgColour, isLooped, typingMiliseconds) => {
+    const myText = document.getElementById(elementID);
+    let numChars = myText.innerText.length;
+
+    myText.style.position = "absolute";
+    myText.style.zIndex = "-1";
+    myText.style.fontSize = fontSize;
+
+    const overlap = document.createElement("h1");
+    overlap.textContent = myText.innerText;
+    overlap.style.position = "absolute";
+    overlap.style.zIndex = "1";
+
+    overlap.style.backgroundColor = `rgb(${bgColour[0]}, ${bgColour[1]}, ${bgColour[2]})`;
+    overlap.style.color = `rgb(${bgColour[0]}, ${bgColour[1]}, ${bgColour[2]})`;
+    overlap.style.fontSize = fontSize;
+
+    document.body.appendChild(overlap);
+
+    let originalLeft = overlap.getBoundingClientRect().left;
+    let overlapWidth = overlap.getBoundingClientRect().width;
+
+    let updatedOverlapWidth;
+    let count = 0;
+    const cooldown = setInterval(() => {
+        numChars--;
+
+        if (numChars < 0 && isLooped) {
+            numChars = myText.innerText.length;
+            overlap.textContent = myText.innerText;
+            overlap.style.left = `${originalLeft}px`;
+            count = -1;
+
+        } else if (numChars < 0 && !isLooped) {
+            clearInterval(cooldown);
+            document.body.removeChild(overlap);
+        }
+
+        overlap.textContent = overlap.textContent.replace(overlap.textContent.charAt(count), " ");
+        updatedOverlapWidth = overlap.getBoundingClientRect().width;
+        overlap.style.left = `${(overlapWidth - updatedOverlapWidth) + originalLeft}px`;
+        count++;
+
+    }, typingMiliseconds)
 }

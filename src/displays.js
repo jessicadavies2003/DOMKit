@@ -40,7 +40,7 @@ const createFlexbox = (flexDirection, textCentered = true, hideOverflow = true, 
  * @param {String} gap Sets the distance between all box elements in the grid.
  * @param {String} width Width of each box that will be created and stored in the main DIV.
  * @param {String} height Height of each box that will be created and stored in the main DIV.
- * @param {String} parent ID of the parent element where the element should be added to. Defaulted to 'body'.
+ * @param {String} parentID ID of the parent element where the element should be added to. Defaulted to 'body'.
  * @returns The HTML Div Element containing the grid.
  * @example 
  * // creates a grid DIV element that creates and styles 3 DIV elements with IDs "box1", "box2" and "box3" respectfully
@@ -50,12 +50,12 @@ const createFlexbox = (flexDirection, textCentered = true, hideOverflow = true, 
  *      ["box2", "box3", "box3"]
  * ], "10px", "100px", "100px");
 */
-const createGrid = (numBoxes, boxColour, gridTemplateArea, gap, width, height, parent = "body") => {
+const createGrid = (numBoxes, boxColour, gridTemplateArea, gap, width, height, centered = true, parentID = "body") => {
     let myDiv;
-    if (parent === "body") {
+    if (parentID === "body") {
         myDiv = document.body;
     } else {
-        myDiv = document.getElementById(parent);
+        myDiv = document.getElementById(parentID);
     }
 
     myDiv.style.display = "grid";
@@ -78,6 +78,10 @@ const createGrid = (numBoxes, boxColour, gridTemplateArea, gap, width, height, p
     }
     myDiv.style.gridTemplateAreas = gridTemplateAreaStr;
     myDiv.style.gap = gap;
+
+    if (centered) {
+        myDiv.style.justifyContent = "center";
+    }
 
     return myDiv;
 }

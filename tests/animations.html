@@ -4,11 +4,12 @@
     <link rel="stylesheet" href="animations.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Animations Test - DOMKit</title>
 </head>
 <body>
     <div class="elements" id="mySquare"></div>
     <h1 class="elements" id="myText">Hello World</h1>
+    <h1 id="creatorName">Jessica Davies - The Creator of DOMKit</h1>
 
     <script src="../src/styles.js"></script>
     <script src="../src/animations.js"></script>
@@ -19,7 +20,9 @@
             centerEl(myElements.item(i));
         }
         rotateAnimation("mySquare", "5s", 360, Infinity, "linear");
+        textGradient("myText", "90deg", [[128, 0, 0], [0, 128, 0]]); // gotta style that text!
         slideInText("myText", "left", "2s", "easeOut");
+        typingAnimation("creatorName", "50px", [255, 255, 255], true, 250);
     </script>
 </body>
 </html>

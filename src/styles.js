@@ -47,13 +47,14 @@ const gradientBG = (element, direction, gradientType, colours, textColour="black
 /**
  * Adds a gradient to an element's text.
  *
- * @param {HTMLElement} element The HTML element where the gradient will be applied, any type of HTML element will suffice.
+ * @param {HTMLElement} elementID ID of the HTML element where the gradient will be applied, any type of HTML element will suffice.
  * @param {String} direction The direction of the gradient in `degrees`.
  * @param {Array} colours A list of lists, where each list contains RGB values for each colour, allowing more than 2 colours.
  * @example
- * textGradient(element, "90deg", [[128, 0, 0], [0, 128, 0], [0, 0, 128]]);
+ * textGradient(elementID, "90deg", [[128, 0, 0], [0, 128, 0], [0, 0, 128]]);
 */
-const textGradient = (element, direction, colours) => {
+const textGradient = (elementID, direction, colours) => {
+    const element = document.getElementById(elementID);
     let funcCall = `-webkit-linear-gradient(${direction}`;
     colours.forEach((colour) => {
         funcCall += ", ";
