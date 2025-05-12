@@ -35,7 +35,7 @@ To ensure DOMKit works correctly, create a new HTML file just outside the direct
     <title>home</title>
 </head>
 <body>
-    <script src="src/elements.js"></script>
+    <script src="DOMKit/src/elements.js"></script>
     <script>
         const myNav = createNavBar({'Home': '', 'About': 'about.html'}, [66, 106, 190]);
     </script>
