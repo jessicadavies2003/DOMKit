@@ -17,7 +17,7 @@ My ideal solution would be to create functions that could create the displays fo
 So, I created **DOMKit**, written entirely in JavaScript. It contains a wide range of functions for all your needs and wants for styling a website, while allowing you to customise these elements as you wish. Flexbox, navigation bars, grid layouts, you name it.
 
 ## Adding DOMKit to your Site
-Download the `src` folder from this repository into your code, then add the following line above any `<script>` tags.
+Download this repository into your code, then add the following line above any `<script>` tags.
 
 ```
 <script src="/path/to/DOMKit/src/[scriptName].js"></script>
