@@ -18,10 +18,10 @@ So, I created **DOMKit**, written entirely in JavaScript. It contains a wide ran
 
 ## Adding DOMKit to your Site
 Download this repository into your code, then add the following line above any `<script>` tags.
-
 ```
 <script src="/path/to/DOMKit/src/[scriptName].js"></script>
 ```
+where `[scriptName]` is one of the source files, depending on what styling or elements you need. For instance, if you want animations on your webpage, you'd import the `animations.js` file.
 
 ## Testing
 To ensure DOMKit works correctly, create a new HTML file just outside the directory of the downloaded 'src' file, add the following code and run it:
