@@ -1,11 +1,13 @@
+/*! DOMKit v1.0 | (c) 2025 Jessica Davies | LICENCE TO BE ADDED */
+
 /**
  * Resets the browser's padding and margin values, so the HTML looks the same on all browsers.
 */
-const cssReset = () => {
-    const style = document.createElement("style");
-    style.textContent += `* { margin: 0; padding: 0; }`;
-    document.head.appendChild(style);
-};
+// const cssReset = () => {
+//     const style = document.createElement("style");
+//     style.textContent += `* { margin: 0; padding: 0; }`;
+//     document.head.appendChild(style);
+// };
 
 /**
  * Uses flexbox to center a given element.
@@ -17,6 +19,15 @@ const centerEl = (element) => {
     element.style.alignItems = "center";
     element.style.justifyContent = "center";
     element.style.margin = "auto";
+}
+
+/**
+ * Centers the inner text of a given element.
+ *
+ * @param {HTMLElement} element The element that contains text to be centered.
+*/
+const centerText = (element) => {
+    element.style.textAlign = "center";
 }
 
 /**
@@ -47,14 +58,13 @@ const gradientBG = (element, direction, gradientType, colours, textColour="black
 /**
  * Adds a gradient to an element's text.
  *
- * @param {HTMLElement} elementID ID of the HTML element where the gradient will be applied, any type of HTML element will suffice.
+ * @param {HTMLElement} element The HTML element where the gradient will be applied, any type of HTML element will suffice.
  * @param {String} direction The direction of the gradient in `degrees`.
  * @param {Array} colours A list of lists, where each list contains RGB values for each colour, allowing more than 2 colours.
  * @example
  * textGradient(elementID, "90deg", [[128, 0, 0], [0, 128, 0], [0, 0, 128]]);
 */
-const textGradient = (elementID, direction, colours) => {
-    const element = document.getElementById(elementID);
+const textGradient = (element, direction, colours) => {
     let funcCall = `-webkit-linear-gradient(${direction}`;
     colours.forEach((colour) => {
         funcCall += ", ";
@@ -120,4 +130,20 @@ const glassmorphism = (wrapperEl, section, bgImgPath, width="50%", padding="20px
     if (addShadow) {
         shadowEffect(section, "forward", "15px", [255, 255, 255]);
     };
+}
+
+/**
+ * Adds a customised border to a HTML element.
+ *
+ * @param {HTMLElement} element The element that the border will be applied to.
+ * @param {String} thickness Determines the thickness of the border.
+ * @param {String} borderType One of the following: [`solid`, `dotted`, `double`, `groovy`]
+ * @param {ArrayLike} colour A list that contains RGB value for the desired colour.
+ * @param {String} borderPadding Hiw much padding to be added to the border.
+ * @example
+ * addBorder(element, "2px", "solid", [128, 0, 0], "10px");
+*/
+const addBorder = (element, thickness, borderType, colour, borderPadding) => {
+    element.style.border = `${thickness} ${borderType} rgb(${colour[0]}, ${colour[2]}, ${colour[2]})`;
+    element.style.padding = borderPadding; 
 }

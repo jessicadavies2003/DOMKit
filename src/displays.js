@@ -34,41 +34,58 @@ const createFlexbox = (flexDirection, textCentered = true, hideOverflow = true, 
 /**
  * Creates and returns a grid container.
  *
- * @param {Number} numBoxes The number of boxes that should be created inside the grid.
  * @param {List} boxColour A list containing three values: red, green, blue. For the background colour of each box element.
  * @param {Array} gridTemplateArea A list, where each list inside the main list represents a row for the grid-template-area value. An `i`th box will have an ID of `box{i}`.
  * @param {String} gap Sets the distance between all box elements in the grid.
  * @param {String} width Width of each box that will be created and stored in the main DIV.
  * @param {String} height Height of each box that will be created and stored in the main DIV.
- * @param {String} parentID ID of the parent element where the element should be added to. Defaulted to 'body'.
- * @returns The HTML Div Element containing the grid.
+ * @param {String} boxRadius Specifies the radius for each box in the grid. Defaulted to `0%`.
+ * @param {String} centered Determines whether or not the grid should be centered. Defaulted to `true`
+ * @param {String} parentID ID of the parent element where the element should be added to. Defaulted to `body`.
+ * @returns A list with the following data: `[Grid Element, box1, box2, ..., boxN]` where `N` is the number of boxes.
  * @example 
  * // creates a grid DIV element that creates and styles 3 DIV elements with IDs "box1", "box2" and "box3" respectfully
- * const myGrid = createGrid(3, [0, 128, 0], [
+ * const myGrid = createGrid([0, 128, 0], [
  *      ["box1", "box1", "box1"],
  *      ["box2", "box3", "box3"],
  *      ["box2", "box3", "box3"]
- * ], "10px", "100px", "100px");
+ * ], "10px", "100px", "100px", "20%");
 */
-const createGrid = (numBoxes, boxColour, gridTemplateArea, gap, width, height, centered = true, parentID = "body") => {
+const createGrid = (boxColour, gridTemplateArea, gap, width, height, boxRadius="0%", centered=true, parentID="body") => {
     let myDiv;
+
     if (parentID === "body") {
         myDiv = document.body;
     } else {
         myDiv = document.getElementById(parentID);
     }
 
+    let uniques = [];
+    gridTemplateArea.forEach(row => {
+        row.forEach(el => {
+            if (!uniques.includes(el)) {
+                uniques.push(el);
+            }
+        })
+    })
+    let numBoxes = parseInt(uniques.sort()[uniques.length-1].substring(3, 4));
+
     myDiv.style.display = "grid";
     myDiv.style.gridTemplateColumns = `${width} `.repeat(gridTemplateArea[0].length);
     myDiv.style.gridTemplateRows = `${height} `.repeat(gridTemplateArea.length);
 
+    let boxes = []
     for (let i = 1; i < numBoxes + 1; i++) {
         const newEl = document.createElement("div");
         const elID = `box${i}`;
+
         newEl.id = elID;
         newEl.style.gridArea = elID;
         newEl.style.backgroundColor = `rgb(${boxColour[0]}, ${boxColour[1]}, ${boxColour[2]})`;
+        newEl.style.borderRadius = boxRadius;
+
         myDiv.appendChild(newEl);
+        boxes.push(newEl);
     }
 
     let gridTemplateAreaStr = ``;
@@ -83,5 +100,5 @@ const createGrid = (numBoxes, boxColour, gridTemplateArea, gap, width, height, c
         myDiv.style.justifyContent = "center";
     }
 
-    return myDiv;
+    return [myDiv, ...boxes];
 }

@@ -1,3 +1,5 @@
+/*! DOMKit v1.0 | (c) 2025 Jessica Davies | LICENCE TO BE ADDED */
+
 let style;
 if (document.getElementById("webStyle")) {
     style = document.getElementById("webStyle");
@@ -20,8 +22,8 @@ const cssReset = () => {
  * Creates and returns a video element, and adds it to the DOM.
  *
  * @param {String} filepath The filepath of the video.
- * @param {Boolean} controls Determines whether or not the user can control the video by playing, pausing, etc. Defaulted to 'true'.
- * @param {String} parent ID of the parent element where the video should be added to. Defaulted to 'body'.
+ * @param {Boolean} controls Determines whether or not the user can control the video by playing, pausing, etc. Defaulted to `true`.
+ * @param {String} parent ID of the parent element where the video should be added to. Defaulted to `body`.
  * @returns The HTML Video Element
 */
 const createVideoEl = (filepath, controls=true, parentID="body") => {
@@ -48,21 +50,23 @@ const createVideoEl = (filepath, controls=true, parentID="body") => {
  *
  * @param {Object} links An object containing data about each link of the nav bar, keys being the name and values being the filepaths for said name.
  * @param {List} bgColour A list containing three values: red, green, blue. For the background colour of the navigation bar.
- * @param {String} textColour (Optional) A string indicating what colour the text should be. Defaulted to "Black".
- * @param {String} resetCSS (Optional) Indicates whether or not the cssReset() function should be called. Defaulted to "true".
+ * @param {String} paddingSize Determines how much padding will be added to the nav bar. Defaulted to `15px`.
+ * @param {List} textColour A list containing three values: red, green, blue for the text colour. Defaulted to `[0, 0, 0]` for black.
+ * @param {Number} opacity A number to determine how transparent the navigation bar should be. Defaulted to `1` for no transparency.
+ * @param {String} resetCSS Indicates whether or not the `cssReset()` function should be called. See the docs for more info. Defaulted to `true`.
  * @returns The HTML Nav Element
  * @example 
  * // creates a navigation bar with a light-blue background, and makes the text black
- * const myNav = createNavBar({'Home': '', 'About': 'about.html'}, [66, 106, 190], "black");
+ * const myNav = createNavBar({'Home': '', 'About': 'about.html'}, [66, 106, 190], 0.5);
 */
-const createNavBar = (links, bgColour, textColour="black", resetCSS=true) => {
+const createNavBar = (links, bgColour, paddingSize="15px", opacity=1, textColour=[0, 0, 0], resetCSS=true) => {
     if (resetCSS) {
         cssReset();
     }
 
-    const paddingSize = "15px";
     const nav = document.createElement("nav");
     nav.style.backgroundColor = `rgb(${bgColour[0]}, ${bgColour[1]}, ${bgColour[2]})`;
+    nav.style.opacity = opacity;
     nav.style.width = "100vw";
     nav.style.padding = paddingSize;
     
@@ -73,8 +77,11 @@ const createNavBar = (links, bgColour, textColour="black", resetCSS=true) => {
         linkEl.href = links[key];
         linkEl.style.padding = paddingSize;
         linkEl.style.textDecoration = "none";
-        linkEl.style.color = textColour;
+        linkEl.style.color = `rgb(${textColour[0]}, ${textColour[1]}, ${textColour[2]})`;
         linkEl.style.fontSize = "1.1rem";
+        if (opacity < 1) {
+            linkEl.style.opacity = "1";
+        }
 
         nav.appendChild(linkEl);
     });
@@ -88,8 +95,8 @@ const createNavBar = (links, bgColour, textColour="black", resetCSS=true) => {
  *
  * @param {Array} headers A list containing the table headers.
  * @param {Array} rowData A list of lists, where each list represents a row of the table.
- * @param {String} hasBorders Determines if the table should have borders. Defaulted to 'true'.
- * @param {String} parent ID of the parent element where the table should be added to. Defaulted to 'body'.
+ * @param {String} hasBorders Determines if the table should have borders. Defaulted to `true`.
+ * @param {String} parent ID of the parent element where the table should be added to. Defaulted to `body`.
  * @returns The HTML Table Element
  * @example
  * const myTable = createTable(["header1", "header2"], [["item1-header1", "item1-header2"], ["item2-header1", "item2-header2"]]);
@@ -138,7 +145,7 @@ const createTable = (headers, rowData, hasBorders=true, parent="body") => {
  * @param {String} dropdownName The name of the dropdown.
  * @param {Array} options A list of strings, where each string represents an option for the dropdown menu.
  * @param {String} label The string to label the dropdown menu.
- * @param {String} parent ID of the parent element where the table should be added to. Defaulted to 'body'.
+ * @param {String} parent ID of the parent element where the table should be added to. Defaulted to `body`.
  * @returns The HTML Dropdown Element
  * @example
  * const cars = createDropdown("cars", ["Volkswagen", "Kia", "Mercedes-Benz"], "Select your favourite car brand.");
@@ -172,14 +179,16 @@ const createDropdown = (dropdownName, options, label, parent="body") => {
  * Creates and returns a form element, and adds it to the DOM.
  *
  * @param {String} title The name of the form element.
- * @param {String} actionPage An external page where the data should be sent. Usually a PHP page.
  * @param {Object} inputData An object containing input data for the form. Keys are the labels, and the values are the type of input.
- * @param {String} parent ID of the parent element where the form should be added to. Defaulted to 'body'.
+ * @param {String} gap A value (in pixels) that determines the gap between all elements.
+ * @param {Boolean} centerVertically Boolean to determine if all input fields should be centered. Defaulted to `true`.
+ * @param {String} actionPage An external page where the data should be sent. Usually a PHP page. Defaulted to `null`.
+ * @param {String} parent ID of the parent element where the form should be added to. Defaulted to `body`.
  * @returns The HTML Form Element
  * @example
- * const signInForm = createForm("signIn", "action.php", {"Username": "text", "Password": "password"});
+ * const signInForm = createForm("Sign In", {"Username": "text", "Password": "password"}, "20px", "action.php");
 */
-const createForm = (title, actionPage, inputData, parent="body") => {
+const createForm = (title, inputData, gap, centerVertically=true, actionPage=null, parent="body") => {
     let myDiv;
     if (parent === "body") {
         myDiv = document.body;
@@ -195,16 +204,33 @@ const createForm = (title, actionPage, inputData, parent="body") => {
 
     const inputLabels = Object.keys(inputData);
     inputLabels.forEach((lbl) => {
-        const lblElement = document.createElement("label");
-        lblElement.textContent = lbl;
         const inputElement = document.createElement("input");
-        inputElement.type = inputData[lbl];
-        inputElement.id = lbl.toLowerCase();
-        lblElement.setAttribute("for", lbl.toLowerCase());
 
-        form.appendChild(lblElement);
+        if (inputData[lbl] === "button") {
+            inputElement.type = inputData[lbl];
+            inputElement.textContent = lbl;
+        
+        } else {
+            const lblElement = document.createElement("label");
+            lblElement.textContent = lbl;
+            inputElement.type = inputData[lbl];
+            inputElement.id = lbl.toLowerCase();
+            lblElement.setAttribute("for", lbl.toLowerCase());
+            form.appendChild(lblElement);
+        }
+
         form.appendChild(inputElement);
     })
+
+    form.style.gap = gap;
+
+    if (centerVertically) {
+        form.style.display = "flex";
+        form.style.flexDirection = "column";
+        form.style.alignItems = "center";
+        form.style.justifyContent = "center";
+        form.style.margin = "auto";
+    }
 
     myDiv.appendChild(form);
     return form;

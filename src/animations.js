@@ -1,3 +1,5 @@
+/*! DOMKit v1.0 | (c) 2025 Jessica Davies | LICENCE TO BE ADDED */
+
 let style;
 if (document.getElementById("webStyle")) {
     style = document.getElementById("webStyle");
@@ -88,10 +90,11 @@ const slideInText = (elementID, direction, duration, timingFunction, animationNa
  * @param {String} bgColour The background colour of either the parent element, or website `body`.
  * @param {String} isLooped Determines if the typing animation will loop continuously.
  * @param {String} typingMiliseconds Time (in miliseconds) between each character being "typed".
+ * @param {Boolean} centered Specifies if the element text should be centered.
  * @example
- * typingAnimation("myText", "50px", [255, 255, 255], true, 250);
+ * typingAnimation("myText", "50px", [255, 255, 255], true, 200);
 */
-const typingAnimation = (elementID, fontSize, bgColour, isLooped, typingMiliseconds) => {
+const typingAnimation = (elementID, fontSize, bgColour, isLooped, typingMiliseconds, centered) => {
     const myText = document.getElementById(elementID);
     let numChars = myText.innerText.length;
 
@@ -99,19 +102,37 @@ const typingAnimation = (elementID, fontSize, bgColour, isLooped, typingMiliseco
     myText.style.zIndex = "-1";
     myText.style.fontSize = fontSize;
 
-    const overlap = document.createElement("h1");
+    const overlap = document.createElement(myText.nodeName.toLowerCase());
+    overlap.id = "overlap";
     overlap.textContent = myText.innerText;
     overlap.style.position = "absolute";
     overlap.style.zIndex = "1";
 
-    overlap.style.backgroundColor = `rgb(${bgColour[0]}, ${bgColour[1]}, ${bgColour[2]})`;
-    overlap.style.color = `rgb(${bgColour[0]}, ${bgColour[1]}, ${bgColour[2]})`;
+    //overlap.style.backgroundColor = `rgb(${bgColour[0]}, ${bgColour[1]}, ${bgColour[2]})`;
+    overlap.style.backgroundColor = "red";
+    //overlap.style.color = `rgb(${bgColour[0]}, ${bgColour[1]}, ${bgColour[2]})`;
+    overlap.style.color = "white";
     overlap.style.fontSize = fontSize;
+
+    if (centered) {
+        myText.style.left = "0";
+        myText.style.right = "0";
+        myText.style.marginInline = "auto";
+        myText.style.width = "fit-content";
+
+        overlap.style.left = "0";
+        overlap.style.right = "0";
+        overlap.style.marginInline = "auto";
+        overlap.style.width = "fit-content";
+    }
 
     document.body.appendChild(overlap);
 
     let originalLeft = overlap.getBoundingClientRect().left;
     let overlapWidth = overlap.getBoundingClientRect().width;
+
+    console.log(`overlap width og: ${overlapWidth}`)
+    console.log(`overlap left og ${originalLeft}`)
 
     let updatedOverlapWidth;
     let count = 0;
@@ -129,9 +150,30 @@ const typingAnimation = (elementID, fontSize, bgColour, isLooped, typingMiliseco
             document.body.removeChild(overlap);
         }
 
-        overlap.textContent = overlap.textContent.replace(overlap.textContent.charAt(count), " ");
-        updatedOverlapWidth = overlap.getBoundingClientRect().width;
-        overlap.style.left = `${(overlapWidth - updatedOverlapWidth) + originalLeft}px`;
+        if (centered) {
+            overlap.textContent = overlap.textContent.replace(overlap.textContent.charAt(count), " ");
+            updatedOverlapWidth = overlap.getBoundingClientRect().width;
+            console.log(`Updated left val ${overlap.getBoundingClientRect().left}`)
+
+            if (count !== 0) {
+                console.log("count is not 0")
+                overlap.style.left = `${(overlapWidth - updatedOverlapWidth) + originalLeft}px`;
+            } else {
+                console.log("count is 0")
+                overlap.style.left = `${originalLeft}px`;
+            }
+
+            //overlap.style.left = `${(overlapWidth - updatedOverlapWidth) + originalLeft}px`;
+            console.log(`Updated left val ${overlap.getBoundingClientRect().left}`)
+
+        } else {
+            overlap.textContent = overlap.textContent.replace(overlap.textContent.charAt(count), " ");
+            updatedOverlapWidth = overlap.getBoundingClientRect().width;
+            overlap.style.left = `${(overlapWidth - updatedOverlapWidth) + originalLeft}px`;
+        }
+
+        console.log(`Equation (${overlapWidth} - ${updatedOverlapWidth}) + ${originalLeft}`)
+        console.log(`Updated left val ${overlap.getBoundingClientRect().left}`)
         count++;
 
     }, typingMiliseconds)

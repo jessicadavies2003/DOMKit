@@ -8,8 +8,9 @@
 </head>
 <body>
     <div class="elements" id="mySquare"></div>
-    <h1 class="elements" id="myText">Hello World</h1>
-    <h1 id="creatorName">Jessica Davies - The Creator of DOMKit</h1>
+    <h1 class="elements" id="myHeading">Hello World</h1>
+    <p class="elements" id="myText">A demonstration of DOMKit's animations.</p>
+    <h1 id="creatorName">Jessica Davies - Creator of DOMKit</h1>
 
     <script src="../src/styles.js"></script>
     <script src="../src/animations.js"></script>
@@ -20,9 +21,10 @@
             centerEl(myElements.item(i));
         }
         rotateAnimation("mySquare", "5s", 360, Infinity, "linear");
-        textGradient("myText", "90deg", [[128, 0, 0], [0, 128, 0]]); // gotta style that text!
-        slideInText("myText", "left", "2s", "easeOut");
-        typingAnimation("creatorName", "50px", [255, 255, 255], true, 250);
+        textGradient("myHeading", "90deg", [[255, 0, 0], [0, 255, 0]]); // gotta style that text!
+        slideInText("myHeading", "left", "2s", "easeOut");
+        slideInText("myText", "right", "2s", "easeOut");
+        typingAnimation("creatorName", "20px", [255, 255, 255], true, 2000, true); // change typingMilisec to 500 after debugging
     </script>
 </body>
 </html>

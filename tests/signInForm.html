@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In Page - DOMKit</title>
+</head>
+<body>
+    <h1 id="heading">Log Into Your Account</h1>
+
+    <script src="../src/elements.js"></script>
+    <script src="../src/styles.js"></script>
+    <script>
+        const signInForm = createForm("Sign In", {"Username": "text", "Password": "password", "Submit": "button"}, "20px");
+        const myHeading = document.getElementById("heading");
+
+        const myNav = createNavBar({'Home': '', 'Login': ''}, [66, 106, 190], 0.5);
+        addBorder(signInForm, "2px", "solid", [128, 0, 0], "10px");
+        textGradient(myHeading, "90deg", [[128, 0, 0], [0, 128, 0]]);
+        centerText(myHeading);
+    </script>
+</body>
+</html>
