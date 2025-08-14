@@ -1,3 +1,5 @@
+/*! DOMKit v1.0 | (c) 2025 Jessica Davies | LICENCE TO BE ADDED */
+
 /**
  * Creates and returns a flexbox container.
  *

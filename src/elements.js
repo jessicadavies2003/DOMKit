@@ -9,14 +9,18 @@ if (document.getElementById("webStyle")) {
     document.head.appendChild(style);
 }
 
-/**
- * Resets the browser's padding and margin values, so the HTML looks the same on all browsers.
-*/
-const cssReset = () => {
-    const style = document.createElement("style");
-    style.textContent = `* { margin: 0; padding: 0; }`;
-    document.head.appendChild(style);
-};
+try {
+    /**
+     * Resets the browser's padding and margin values, so the HTML looks the same on all browsers.
+    */
+    const cssReset = () => {
+        const style = document.createElement("style");
+        style.textContent += `* { margin: 0; padding: 0; }`;
+        document.head.appendChild(style);
+    };
+} catch (SyntaxError) {
+    // do nothing
+}
 
 /**
  * Creates and returns a video element, and adds it to the DOM.
@@ -25,8 +29,10 @@ const cssReset = () => {
  * @param {Boolean} controls Determines whether or not the user can control the video by playing, pausing, etc. Defaulted to `true`.
  * @param {String} parent ID of the parent element where the video should be added to. Defaulted to `body`.
  * @returns The HTML Video Element
+ * @example 
+ * const myVideo = createVideoEl("media/website-design.mp3", {parentID: "myDiv"});
 */
-const createVideoEl = (filepath, controls=true, parentID="body") => {
+const createVideoEl = (filepath, {controls=true, parentID="body"}) => {
     let myDiv;
     if (parentID === "body") {
         myDiv = document.body;
@@ -56,10 +62,9 @@ const createVideoEl = (filepath, controls=true, parentID="body") => {
  * @param {String} resetCSS Indicates whether or not the `cssReset()` function should be called. See the docs for more info. Defaulted to `true`.
  * @returns The HTML Nav Element
  * @example 
- * // creates a navigation bar with a light-blue background, and makes the text black
- * const myNav = createNavBar({'Home': '', 'About': 'about.html'}, [66, 106, 190], 0.5);
+ * const myNav = createNavBar({'Home': '', 'About': 'about.html'}, [66, 106, 190], {resetCSS: false});
 */
-const createNavBar = (links, bgColour, paddingSize="15px", opacity=1, textColour=[0, 0, 0], resetCSS=true) => {
+const createNavBar = (links, bgColour, {paddingSize="15px", opacity=1, textColour=[0, 0, 0], resetCSS=true}) => {
     if (resetCSS) {
         cssReset();
     }
@@ -96,17 +101,17 @@ const createNavBar = (links, bgColour, paddingSize="15px", opacity=1, textColour
  * @param {Array} headers A list containing the table headers.
  * @param {Array} rowData A list of lists, where each list represents a row of the table.
  * @param {String} hasBorders Determines if the table should have borders. Defaulted to `true`.
- * @param {String} parent ID of the parent element where the table should be added to. Defaulted to `body`.
+ * @param {String} parentID ID of the parent element where the table should be added to. Defaulted to `body`.
  * @returns The HTML Table Element
  * @example
- * const myTable = createTable(["header1", "header2"], [["item1-header1", "item1-header2"], ["item2-header1", "item2-header2"]]);
+ * const myTable = createTable(["header1", "header2"], [["item1-header1", "item1-header2"], ["item2-header1", "item2-header2"]], {parentID: "body"});
 */
-const createTable = (headers, rowData, hasBorders=true, parent="body") => {
+const createTable = (headers, rowData, {hasBorders=true, parentID="body"}) => {
     let myDiv;
-    if (parent === "body") {
+    if (parentID === "body") {
         myDiv = document.body;
     } else {
-        myDiv = document.getElementById(parent);
+        myDiv = document.getElementById(parentID);
     }
 
     const table = document.createElement("table");
@@ -145,17 +150,17 @@ const createTable = (headers, rowData, hasBorders=true, parent="body") => {
  * @param {String} dropdownName The name of the dropdown.
  * @param {Array} options A list of strings, where each string represents an option for the dropdown menu.
  * @param {String} label The string to label the dropdown menu.
- * @param {String} parent ID of the parent element where the table should be added to. Defaulted to `body`.
+ * @param {String} parentID ID of the parent element where the table should be added to. Defaulted to `body`.
  * @returns The HTML Dropdown Element
  * @example
  * const cars = createDropdown("cars", ["Volkswagen", "Kia", "Mercedes-Benz"], "Select your favourite car brand.");
 */
-const createDropdown = (dropdownName, options, label, parent="body") => {
+const createDropdown = (dropdownName, options, label, parentID="body") => {
     let myDiv;
-    if (parent === "body") {
+    if (parentID === "body") {
         myDiv = document.body;
     } else {
-        myDiv = document.getElementById(parent);
+        myDiv = document.getElementById(parentID);
     }
 
     const dropdown = document.createElement("select");
@@ -186,7 +191,7 @@ const createDropdown = (dropdownName, options, label, parent="body") => {
  * @param {String} parent ID of the parent element where the form should be added to. Defaulted to `body`.
  * @returns The HTML Form Element
  * @example
- * const signInForm = createForm("Sign In", {"Username": "text", "Password": "password"}, "20px", "action.php");
+ * const signInForm = createForm("Sign In", {"Username": "text", "Password": "password"}, "20px", actionPage="action.php");
 */
 const createForm = (title, inputData, gap, centerVertically=true, actionPage=null, parent="body") => {
     let myDiv;
@@ -197,7 +202,7 @@ const createForm = (title, inputData, gap, centerVertically=true, actionPage=nul
     }
 
     const form = document.createElement("form");
-    form.action = actionPage;
+    form.action = actionPage == null ? "" : actionPage;
     const titleElement = document.createElement("h1");
     titleElement.textContent = title;
     form.appendChild(titleElement);

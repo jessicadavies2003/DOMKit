@@ -1,18 +1,25 @@
 /*! DOMKit v1.0 | (c) 2025 Jessica Davies | LICENCE TO BE ADDED */
 
-/**
- * Resets the browser's padding and margin values, so the HTML looks the same on all browsers.
-*/
-// const cssReset = () => {
-//     const style = document.createElement("style");
-//     style.textContent += `* { margin: 0; padding: 0; }`;
-//     document.head.appendChild(style);
-// };
+
+try {
+    /**
+     * Resets the browser's padding and margin values, so the HTML looks the same on all browsers.
+    */
+    const cssReset = () => {
+        const style = document.createElement("style");
+        style.textContent += `* { margin: 0; padding: 0; }`;
+        document.head.appendChild(style);
+    };
+} catch (SyntaxError) {
+    // do nothing
+}
 
 /**
  * Uses flexbox to center a given element.
  *
  * @param {HTMLElement} element The element to be centered.
+ * @example
+ * centerEl(element);
 */
 const centerEl = (element) => {
     element.style.display = "flex";
@@ -25,9 +32,18 @@ const centerEl = (element) => {
  * Centers the inner text of a given element.
  *
  * @param {HTMLElement} element The element that contains text to be centered.
+ * @param {String} horizontalOrVertical Determines if the text should be centered horizontally or vertically. Accepted values: `horizontal`, `vertical`. Default `horizontal`
+ * @param {String} sizeOfElement The size of the element in pixels. Defaulted to `null`.
+ * @example
+ * centerText(element, "vertical", "20px");
 */
-const centerText = (element) => {
-    element.style.textAlign = "center";
+const centerText = (element, horizontalOrVertical="horizontal", sizeOfElement=null) => {
+    if (horizontalOrVertical === "horizontal") {
+        element.style.textAlign = "center";
+    } else if (horizontalOrVertical === "vertical") {
+        const padding = sizeOfElement == null ? `${element.offsetHeight}px` : sizeOfElement;
+        element.style.padding = `${padding} 0`;
+    }
 }
 
 /**
@@ -59,13 +75,12 @@ const gradientBG = (element, direction, gradientType, colours, textColour="black
  * Adds a gradient to an element's text.
  *
  * @param {HTMLElement} element The HTML element where the gradient will be applied, any type of HTML element will suffice.
- * @param {String} direction The direction of the gradient in `degrees`.
  * @param {Array} colours A list of lists, where each list contains RGB values for each colour, allowing more than 2 colours.
  * @example
- * textGradient(elementID, "90deg", [[128, 0, 0], [0, 128, 0], [0, 0, 128]]);
+ * textGradient(element, [[128, 0, 0], [0, 128, 0], [0, 0, 128]]);
 */
-const textGradient = (element, direction, colours) => {
-    let funcCall = `-webkit-linear-gradient(${direction}`;
+const textGradient = (element, colours) => {
+    let funcCall = `-webkit-linear-gradient(90deg`;
     colours.forEach((colour) => {
         funcCall += ", ";
         funcCall += `rgb(${colour[0]}, ${colour[1]}, ${colour[2]})`;
@@ -146,4 +161,15 @@ const glassmorphism = (wrapperEl, section, bgImgPath, width="50%", padding="20px
 const addBorder = (element, thickness, borderType, colour, borderPadding) => {
     element.style.border = `${thickness} ${borderType} rgb(${colour[0]}, ${colour[2]}, ${colour[2]})`;
     element.style.padding = borderPadding; 
+}
+
+/**
+ * Set's the font for the webpage.
+ *
+ * @param {String} familyName The family name of the desired font. This must be in lowercase.
+ * @example
+ * setWebpageFont("sans-serif");
+*/
+const setWebpageFont = (familyName) => {
+    document.body.style.fontFamily = familyName
 }
