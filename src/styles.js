@@ -1,6 +1,5 @@
 /*! DOMKit v1.0 | (c) 2025 Jessica Davies | LICENCE TO BE ADDED */
 
-
 try {
     /**
      * Resets the browser's padding and margin values, so the HTML looks the same on all browsers.

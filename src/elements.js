@@ -14,7 +14,6 @@ try {
      * Resets the browser's padding and margin values, so the HTML looks the same on all browsers.
     */
     const cssReset = () => {
-        const style = document.createElement("style");
         style.textContent += `* { margin: 0; padding: 0; }`;
         document.head.appendChild(style);
     };
