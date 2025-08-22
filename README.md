@@ -57,3 +57,7 @@ If you would like to learn about DOMKit's functionality, read the docs <a href="
 
 Jessica Davies
 - https://jessicadavies2003.github.io/
+
+## Licence
+
+You may use this library under the terms and conditions on the Apache licence. See <a href="[https://jessicadavies2003.github.io/projects/domkit-docs/](https://github.com/jessicadavies2003/DOMKit/blob/main/LICENSE)">LICENCE</a> for details.
