@@ -19,12 +19,7 @@
             centerText(allElements.item(i));
         }
 
-        const myGrid = createGrid([0, 128, 0], [
-            ["box1", "box1", "box4", "box4"],
-            ["box2", "box2", "box4", "box4"],
-            ["box2", "box2", "box3", "box3"]
-        ], "10px", "100px", "100px", "20px", true, parentID="theGrid");
-
+        const myGrid = createGrid([0, 128, 0], [ ["box1", "box1", "box1"], ["box2", "box3", "box3"], ["box2", "box3", "box3"] ], "10px", "100px", "100px", {boxRadius: "20px", parentID: "theGrid"});
         console.log(myGrid);
     </script>
 </body>

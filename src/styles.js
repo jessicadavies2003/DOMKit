@@ -73,17 +73,20 @@ const gradientBG = (element, direction, gradientType, colours, textColour="black
 /**
  * Adds a gradient to an element's text.
  *
- * @param {HTMLElement} element The HTML element where the gradient will be applied, any type of HTML element will suffice.
+ * @param {HTMLElement} elementID The HTML element where the gradient will be applied, any type of HTML element will suffice.
  * @param {Array} colours A list of lists, where each list contains RGB values for each colour, allowing more than 2 colours.
  * @example
  * textGradient(element, [[128, 0, 0], [0, 128, 0], [0, 0, 128]]);
 */
-const textGradient = (element, colours) => {
+const textGradient = (elementID, colours) => {
+    const element = document.getElementById(elementID);
+
     let funcCall = `-webkit-linear-gradient(90deg`;
     colours.forEach((colour) => {
         funcCall += ", ";
         funcCall += `rgb(${colour[0]}, ${colour[1]}, ${colour[2]})`;
     });
+
     element.style.background = funcCall;
     element.style.backgroundClip = "text";
     element.style.webkitTextFillColor = "transparent";
@@ -115,19 +118,22 @@ const shadowEffect = (element, facing, spread, colour) => {
 /**
  * Adds a glassmorphism effect to a given section element.
  *
- * @param {HTMLDivElement} wrapperEl The HTML DIV element that includes the section element where the effect will be applied.
- * @param {HTMLElement} section The section element within `wrapperEl`. This will include things like a header, text, a CTA button, etc.
+ * @param {HTMLDivElement} wrapperID The HTML DIV element that includes the section element where the effect will be applied.
+ * @param {HTMLElement} elementID The section element within `wrapperEl`. This will include things like a header, text, a CTA button, etc.
  * @param {String} bgImgPath The path to the image that will be placed on the background.
  * @param {String} width (Optional) The width of the element with ID `sectionID`. Defaulted to '50%', half of the width of its parent element.
  * @param {String} padding (Optional) Determines the padding that'll get applied to all elements in the element with ID `sectionID`. Defaulted to '20px'.
  * @param {String} addShadow (Optional) Determines if the glassmorphism effect should have a shadow effect. Defaulted to 'true'.
  * @param {String} blur (Optional) The amount of blur in the backdrop filter. Defaulted to '5px'.
  * @example
- * // See `glassmorphism.html` in `tests` folder on GitHub to see how this works.
- * glassmorphism(element, "media/cool-bg.jpg");
+ * glassmorphism("wrapper", "myElement", "media/cool-bg.jpg");
 */
-const glassmorphism = (wrapperEl, section, bgImgPath, width="50%", padding="20px", addShadow=true, blur="5px") => {
+const glassmorphism = (wrapperID, elementID, bgImgPath, {width="50%", padding="20px", addShadow=true, blur="5px"}) => {
     cssReset();
+
+    const wrapperEl = document.getElementById(wrapperID);
+    const section = document.getElementById(elementID);
+
     wrapperEl.style.backgroundImage = `url(${bgImgPath})`;
     wrapperEl.style.backgroundSize = "cover";
     wrapperEl.style.backgroundRepeat = "no-repeat";
