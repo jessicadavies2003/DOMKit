@@ -60,4 +60,4 @@ Jessica Davies
 
 ## Licence
 
-You may use this library under the terms and conditions on the Apache licence. See <a href="[https://jessicadavies2003.github.io/projects/domkit-docs/](https://github.com/jessicadavies2003/DOMKit/blob/main/LICENSE)">LICENCE</a> for details.
+You may use this library under the terms and conditions on the Apache licence. See <a href="https://github.com/jessicadavies2003/DOMKit/blob/main/LICENSE">LICENCE</a> for details.
