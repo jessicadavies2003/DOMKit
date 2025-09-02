@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toggle Switch - DOMKit</title>
+</head>
+<body>
+    <main id="toggle"></main>
+
+    <section id="mainSection">
+        <h1>Hello World</h1>
+        <p>This is a demonstration of how DOMKit's <code>createToggle</code> function is used.</p>
+        <p>Use the toggle above to switch between dark and light mode.</p>
+    </section>
+
+    <script src="../src/elements.js"></script>
+    <script>
+        const toggleWrapper = createToggle("100px", [128, 128, 128], [255, 255, 255], {'light': [[0, 0, 0], [255, 255, 255]], 'dark': [[255, 255, 255], [37, 37, 38]]}, parentID="toggle");
+    </script>
+</body>
+</html>

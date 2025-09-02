@@ -81,19 +81,3 @@ const slideInText = (elementID, direction, duration, timingFunction, animationNa
 
     style.textContent += keyframesStyling;
 }
-
-/**
- * Adds a typing animation to the inner text of a given HTML element.
- *
- * @param {HTMLElement} elementID ID of the HTML element where the effect will be applied, any type of HTML element will suffice.
- * @param {String} fontSize The size of the text's font.
- * @param {String} bgColour The background colour of either the parent element, or website `body`.
- * @param {String} isLooped Determines if the typing animation will loop continuously.
- * @param {String} typingMiliseconds Time (in miliseconds) between each character being "typed".
- * @param {Boolean} centered Specifies if the element text should be centered.
- * @example
- * typingAnimation("myText", "50px", [255, 255, 255], true, 200);
-*/
-const typingAnimation = (elementID, fontSize, bgColour, isLooped, typingMiliseconds, centered) => {
-    
-}
