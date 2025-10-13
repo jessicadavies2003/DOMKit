@@ -1,4 +1,4 @@
-/*! DOMKit v1.0 | (c) 2025 Jessica Davies | LICENCE TO BE ADDED */
+/*! DOMKit v1.0 | (c) 2025 Jessica Davies | https://github.com/jessicadavies2003/DOMKit/blob/main/LICENSE */
 
 try {
     /**
@@ -177,4 +177,5 @@ const addBorder = (element, thickness, borderType, colour, borderPadding) => {
 */
 const setWebpageFont = (familyName) => {
     document.body.style.fontFamily = familyName
+
 }
