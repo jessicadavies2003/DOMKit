@@ -21,7 +21,10 @@ Download this repository into your code, then add the following line above any `
 ```
 <script src="/path/to/DOMKit/src/[scriptName].js"></script>
 ```
-where `[scriptName]` is one of the source files, depending on what styling or elements you need. For instance, if you want animations on your webpage, you'd import the `animations.js` file.
+where `[scriptName]` is one of the source files, depending on what styling or elements you need. For instance, if you want animations on your webpage, you'd write the following:
+```
+<script src="/path/to/DOMKit/src/animations.js"></script>
+```
 
 ## Testing
 To ensure DOMKit works correctly, create a new HTML file just outside the directory of the downloaded 'src' file, add the following code and run it:
