@@ -1,4 +1,4 @@
-/*! DOMKit v1.0 | (c) 2025 Jessica Davies | LICENCE TO BE ADDED */
+/*! DOMKit v1.0 | (c) 2025 Jessica Davies | https://github.com/jessicadavies2003/DOMKit/blob/main/LICENSE */
 
 let style;
 if (document.getElementById("webStyle")) {
@@ -80,4 +80,5 @@ const slideInText = (elementID, direction, duration, timingFunction, animationNa
 }`
 
     style.textContent += keyframesStyling;
+
 }
