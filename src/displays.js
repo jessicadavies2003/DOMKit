@@ -1,4 +1,4 @@
-/*! DOMKit v1.0 | (c) 2025 Jessica Davies | LICENCE TO BE ADDED */
+/*! DOMKit v1.0 | (c) 2025 Jessica Davies | https://github.com/jessicadavies2003/DOMKit/blob/main/LICENSE */
 
 /**
  * Creates and returns a flexbox container.
@@ -101,4 +101,5 @@ const createGrid = (boxColour, gridTemplateArea, gap, width, height, {boxRadius=
     }
 
     return [myDiv, ...boxes];
+
 }
