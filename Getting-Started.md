@@ -1,4 +1,4 @@
-## Getting Started with DOMKit
+## Getting Started with DOMKit - A Guide
 Download this GitHub respository as a `ZIP` file, then add the following line inside the `<head>` tags.
 ```
 <script src="/path/to/DOMKit/src/[scriptName].js"></script>
