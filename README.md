@@ -25,7 +25,7 @@ where `[scriptName]` is one of the source files, depending on what styling or el
 
 For instance, if you want animations on your webpage, you'd write the following:
 ```
-<script src="/path/to/DOMKit/src/animations.js"></script>
+<script src="/path/to/DOMKit/src/domkit.animations.js"></script>
 ```
 
 ## Testing
@@ -40,7 +40,7 @@ To ensure DOMKit works correctly, create a new HTML file just outside the direct
     <title>home</title>
 </head>
 <body>
-    <script src="DOMKit/src/elements.js"></script>
+    <script src="DOMKit/src/domkit.elements.js"></script>
     <script>
         const myNav = createNavBar({'Home': '', 'About': 'about.html'}, [66, 106, 190]);
     </script>
