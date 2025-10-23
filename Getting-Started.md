@@ -32,8 +32,6 @@ Let's create a test script to ensure DOMKit works correctly!
 </head>
 <body>
     <script>
-        // When a function has optional parameters inside curly brackets,
-        // and you want to stick with the default parameters, put {} at the end of the function call.
         const myNav = createNavBar({'Home': '', 'About': 'about.html'}, [66, 106, 190], {});
     </script>
 </body>
