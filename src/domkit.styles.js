@@ -1,28 +1,14 @@
 /*! DOMKit v1.0 | (c) 2025 Jessica Davies | https://github.com/jessicadavies2003/DOMKit/blob/main/LICENSE */
 
-// let style;
-// if (document.getElementById("webStyle")) {
-//     style = document.getElementById("webStyle");
-// } else {
-//     style = document.createElement("style");
-//     style.id = "webStyle";
-//     document.head.appendChild(style);
-// }
-
-// we use a `try... catch` here in case a dev imports another DOMKit JS file that has already defined `cssReset`.
-// Removing it causes the code to break.
-try {
+if (typeof cssReset === 'undefined'){
     /**
      * Resets the browser's padding and margin values, so the HTML looks the same on all browsers.
     */
-    const cssReset = () => {
+    cssReset = () => {
         const style = document.createElement("style");
         style.textContent += `* { margin: 0; padding: 0; }`;
         document.head.appendChild(style);
     };
-
-} catch (SyntaxError) {
-    // do nothing
 }
 
 /**

@@ -9,16 +9,15 @@ if (document.getElementById("webStyle")) {
     document.head.appendChild(style);
 }
 
-try {
+if (typeof cssReset === 'undefined'){
     /**
      * Resets the browser's padding and margin values, so the HTML looks the same on all browsers.
     */
-    const cssReset = () => {
+    cssReset = () => {
+        const style = document.createElement("style");
         style.textContent += `* { margin: 0; padding: 0; }`;
         document.head.appendChild(style);
     };
-} catch (SyntaxError) {
-    // do nothing
 }
 
 /**
@@ -61,7 +60,7 @@ const createVideoEl = (filepath, {controls=true, parentID="body"}) => {
  * @param {String} resetCSS Indicates whether or not the `cssReset()` function should be called. See the docs for more info. Defaulted to `true`.
  * @returns The HTML Nav Element
  * @example 
- * const myNav = createNavBar({'Home': '', 'About': 'about.html'}, [66, 106, 190], {resetCSS: false});
+ * const myNav = createNavBar({'Home': '', 'About': 'about.html'}, [66, 106, 190]);
 */
 const createNavBar = (links, bgColour, {paddingSize="15px", opacity=1, textColour=[0, 0, 0], resetCSS=true}) => {
     if (resetCSS) {
