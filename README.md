@@ -56,6 +56,10 @@ If you are unsure where to begin with either getting started, or experimenting w
 
 If you would like to learn about DOMKit's functionality, read the docs <a href="https://jessicadavies2003.github.io/projects/domkit-docs/">here</a>.
 
+## Issues
+
+If you encounter any issues while using DOMKit in your projects, feel free to open an issue ticket right here on the repository, and I'll get back to you ASAP.
+
 ## Creator
 
 Jessica Davies
