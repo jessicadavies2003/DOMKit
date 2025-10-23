@@ -32,7 +32,7 @@ For instance, if you want animations on your webpage, you'd write the following:
 Let's create a test script to ensure DOMKit works correctly!
 
 1. Download this GitHub respository as a `ZIP` file.
-2. Head to your favourite IDE and create a new directory, followed by a HTML file. We'll call it `index.html`, but you can name it as you like.
+2. Head to your favourite IDE and create a new directory, followed by a HTML file inside that directory. We'll call it `index.html`, but you can name it as you like.
 3. Extract the contents of DOMKit's repository, and move the extracted folder into your new directory.
 4. Paste the following code into your HTML file:
 
