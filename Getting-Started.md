@@ -1,5 +1,5 @@
-## Adding DOMKit to your Site
-Download this repository into your code, then add the following line inside the `<head>` tags.
+## Getting Started with DOMKit
+Download this GitHub respository as a `ZIP` file, then add the following line inside the `<head>` tags.
 ```
 <script src="/path/to/DOMKit/src/[scriptName].js"></script>
 ```
@@ -42,3 +42,9 @@ Let's create a test script to ensure DOMKit works correctly!
 5. Execute/Run the code. If it works, you should see the following:
 
 ![A light-blue coloured navigation bar with the links "Home" and "About" in black.](imgs/working-DOMKit-nav.png "DOMKit Test - Navigation Bar")
+
+## Usage
+
+There are a handful of small demo projects inside this repository when you download it as a ZIP file that are ready to run! Be sure to check them out!
+
+(to be added)
