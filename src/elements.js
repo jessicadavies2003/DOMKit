@@ -328,5 +328,4 @@ const createToggle = (width, toggleColour, switchColour, themes, parentID="body"
     toggleWrapper.appendChild(toggle);
     myDiv.appendChild(toggleWrapper);
     return toggleWrapper;
-
 }

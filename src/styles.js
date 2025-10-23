@@ -1,5 +1,16 @@
 /*! DOMKit v1.0 | (c) 2025 Jessica Davies | https://github.com/jessicadavies2003/DOMKit/blob/main/LICENSE */
 
+let style;
+if (document.getElementById("webStyle")) {
+    style = document.getElementById("webStyle");
+} else {
+    style = document.createElement("style");
+    style.id = "webStyle";
+    document.head.appendChild(style);
+}
+
+// we use a `try... catch` here in case a dev imports another DOMKit JS file that has already defined `cssReset`.
+// Removing it causes the code to break.
 try {
     /**
      * Resets the browser's padding and margin values, so the HTML looks the same on all browsers.
@@ -169,13 +180,25 @@ const addBorder = (element, thickness, borderType, colour, borderPadding) => {
 }
 
 /**
- * Set's the font for the webpage.
+ * Given an object of CSS styles, sets these styles to a given element.
  *
- * @param {String} familyName The family name of the desired font. This must be in lowercase.
+ * @param {String} elementID ID of the element to be styled.
+ * @param {Object} cssStylesObj An object containing various CSS attributes and your choice for each. See example for clarification.
  * @example
- * setWebpageFont("sans-serif");
+ * setElementStyle("myButton", {"background-color": "white", "color": "black", "border": "2px double brown"});
 */
-const setWebpageFont = (familyName) => {
-    document.body.style.fontFamily = familyName
+const setElementStyle = (elementID, cssStylesObj) => {
+    let cssStyling = `
+#${elementID} {
+`
 
+    const allKeys = Object.keys(cssStylesObj);
+    const allValues = Object.values(cssStylesObj);
+
+    for (let i = 0; i < allKeys.length; i++){
+        cssStyling += `${allKeys[i]}: ${allValues[i]}
+`
+    }
+
+    style += cssStyling;
 }

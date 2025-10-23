@@ -80,5 +80,44 @@ const slideInText = (elementID, direction, duration, timingFunction, animationNa
 }`
 
     style.textContent += keyframesStyling;
+}
 
+/**
+ * Adds a "fade in scroll" effect to all elements inside a given parent element ID.
+ *
+ * @param {HTMLElement} parentID Parent ID of all HTML element where the effect will be applied.
+ * @param {Number} duration How long each element will fade in for (in seconds). Default value is `5`.
+ * @example
+ * fadeInScrollEffect("paragraphs");
+*/
+const fadeInScrollEffect = (parentID, duration=5) => {
+    const cssEntry = `
+.hidden {
+    opacity: 0;
+    transition: all ${duration}s;
+}
+
+.show {
+    opacity: 1;
+}`;
+    style.textContent += cssEntry;
+
+    const allChildrenNodes = document.getElementById(parentID).children;
+    for (let i = 0; i < allChildrenNodes.length; i++){
+        const current = allChildrenNodes.item(i);
+        current.classList.add("hidden");
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if ((entry.isIntersecting) && (entry.target.parentNode.id == parentID)) {
+                entry.target.classList.add("show");
+            } else {
+                entry.target.classList.remove("show");
+            }
+        })
+    })
+
+    const hiddenElements = document.querySelectorAll(".hidden");
+    hiddenElements.forEach((el) => observer.observe(el));
 }

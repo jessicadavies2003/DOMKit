@@ -48,7 +48,6 @@ const createFlexbox = (flexDirection, {textCentered = true, hideOverflow = true,
  * @param {String} parentID ID of the parent element where the element should be added to. Defaulted to `body`.
  * @returns A list with the following data: `[Grid Element, box1, box2, ..., boxN]` where `N` is the number of boxes.
  * @example 
- * // creates a grid DIV element that creates and styles 3 DIV elements with IDs "box1", "box2" and "box3" respectfully
  * const myGrid = createGrid([0, 128, 0], [ ["box1", "box1", "box1"], ["box2", "box3", "box3"], ["box2", "box3", "box3"] ], "10px", "100px", "100px", {boxRadius:"20%"});
 */
 const createGrid = (boxColour, gridTemplateArea, gap, width, height, {boxRadius="0%", centered=true, parentID="body"}) => {
@@ -101,5 +100,4 @@ const createGrid = (boxColour, gridTemplateArea, gap, width, height, {boxRadius=
     }
 
     return [myDiv, ...boxes];
-
 }
