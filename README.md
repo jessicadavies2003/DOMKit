@@ -22,6 +22,7 @@ Download this repository into your code, then add the following line above any `
 <script src="/path/to/DOMKit/src/[scriptName].js"></script>
 ```
 where `[scriptName]` is one of the source files, depending on what styling or elements you need.
+
 For instance, if you want animations on your webpage, you'd write the following:
 ```
 <script src="/path/to/DOMKit/src/animations.js"></script>
