@@ -48,3 +48,11 @@ Let's create a test script to ensure DOMKit works correctly!
 There are a handful of small demo projects inside this repository when you download it as a ZIP file that are ready to run! Be sure to check them out!
 
 (to be added)
+
+## Exploring DOMKit
+
+To get started with DOMKit and ensure it works for you, check out the Getting Started with DOMKit file found <a href="https://github.com/jessicadavies2003/DOMKit/blob/main/Getting-Started.md">here</a>.
+
+If you are unsure where to begin with either getting started, or experimenting with DOMKit's range of functions, try out some test scripts in the `demo` folder of this repository.
+
+If you would like to learn about DOMKit's functionality, read the docs <a href="https://jessicadavies2003.github.io/projects/domkit-docs/">here</a>.
