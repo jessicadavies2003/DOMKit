@@ -41,8 +41,8 @@ Let's create a test script to ensure DOMKit works correctly!
 <html lang="en">
 <head>
     <!-- scripts go here -->
-    <script src="../src/domkit.elements.js"></script>
-    <script src="../src/domkit.styles.js"></script>
+    <script src="DOMKit-main/src/domkit.elements.js"></script>
+    <script src="DOMKit-main/src/domkit.styles.js"></script>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
