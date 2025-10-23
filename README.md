@@ -17,7 +17,7 @@ My ideal solution would be to create functions that could create the displays fo
 So, I created **DOMKit**, written entirely in JavaScript. It contains a wide range of functions for all your needs and wants for styling a website, while allowing you to customise these elements as you wish. Flexbox, navigation bars, grid layouts, you name it.
 
 ## Adding DOMKit to your Site
-Download this repository into your code, then add the following line above any `<script>` tags.
+Download this repository into your code, then add the following line inside the `<head>` tags.
 ```
 <script src="/path/to/DOMKit/src/[scriptName].js"></script>
 ```
@@ -35,12 +35,14 @@ To ensure DOMKit works correctly, create a new HTML file just outside the direct
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- scripts go here -->
+    <script src="DOMKit/src/domkit.elements.js"></script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>home</title>
 </head>
 <body>
-    <script src="DOMKit/src/domkit.elements.js"></script>
     <script>
         const myNav = createNavBar({'Home': '', 'About': 'about.html'}, [66, 106, 190]);
     </script>
