@@ -51,8 +51,6 @@ There are a handful of small demo projects inside this repository when you downl
 
 ## Exploring DOMKit
 
-To get started with DOMKit and ensure it works for you, check out the Getting Started with DOMKit file found <a href="https://github.com/jessicadavies2003/DOMKit/blob/main/Getting-Started.md">here</a>.
-
 If you are unsure where to begin with either getting started, or experimenting with DOMKit's range of functions, try out some test scripts in the `demo` folder of this repository.
 
 If you would like to learn about DOMKit's functionality, read the docs <a href="https://jessicadavies2003.github.io/projects/domkit-docs/">here</a>.
