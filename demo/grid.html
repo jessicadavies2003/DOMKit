@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- scripts -->
+    <script src="../src/domkit.displays.js"></script>
+    <script src="../src/domkit.styles.js"></script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bento Grid Layout - DOMKit</title>
@@ -11,8 +15,6 @@
     <p class="element">Open up the console to check out the return value of the grid function.</p>
     <div id="theGrid"></div>
 
-    <script src="../src/displays.js"></script>
-    <script src="../src/styles.js"></script>
     <script>
         const allElements = document.getElementsByClassName("element");
         for (let i = 0; i < allElements.length; i++) {
