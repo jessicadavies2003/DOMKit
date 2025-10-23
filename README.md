@@ -18,7 +18,7 @@ So, I created **DOMKit**, written entirely in JavaScript. It contains a wide ran
 
 ## Getting Started with DOMKit
 
-To get started with DOMKit and ensure it works for you, check out the Getting Started with DOMKit file found <a href="https://github.com/jessicadavies2003/DOMKit/blob/main/Getting-Started.md">here</a>.
+To get started with DOMKit and ensure it works for you, check out the "Getting Started guide" found <a href="https://github.com/jessicadavies2003/DOMKit/blob/main/Getting-Started.md">here</a>.
 
 If you are unsure where to begin with either getting started, or experimenting with DOMKit's range of functions, try out some test scripts in the `demo` folder of this repository.
 
