@@ -41,7 +41,8 @@ Let's create a test script to ensure DOMKit works correctly!
 <html lang="en">
 <head>
     <!-- scripts go here -->
-    <script src="DOMKit-main/src/domkit.elements.js"></script>
+    <script src="../src/domkit.elements.js"></script>
+    <script src="../src/domkit.styles.js"></script>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -49,7 +50,9 @@ Let's create a test script to ensure DOMKit works correctly!
 </head>
 <body>
     <script>
-        const myNav = createNavBar({'Home': '', 'About': 'about.html'}, [66, 106, 190]);
+        // When a function has optional parameters inside curly brackets,
+        // and you want to stick with the default parameters, put {} at the end of the function call.
+        const myNav = createNavBar({'Home': '', 'About': 'about.html'}, [66, 106, 190], {});
     </script>
 </body>
 </html>
