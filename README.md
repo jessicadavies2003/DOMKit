@@ -29,14 +29,19 @@ For instance, if you want animations on your webpage, you'd write the following:
 ```
 
 ## Testing
-To ensure DOMKit works correctly, create a new HTML file just outside the directory of the downloaded 'src' file, add the following code and run it:
+Let's create a test script to ensure DOMKit works correctly!
+
+1. Download this GitHub respository as a `ZIP` file.
+2. Head to your favourite IDE and create a new directory, followed by a HTML file. We'll call it `index.html`, but you can name it as you like.
+3. Extract the contents of DOMKit's repository, and move the extracted folder into your new directory.
+4. Paste the following code into your HTML file:
 
 ```
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <!-- scripts go here -->
-    <script src="DOMKit/src/domkit.elements.js"></script>
+    <script src="DOMKit-main/src/domkit.elements.js"></script>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -49,8 +54,7 @@ To ensure DOMKit works correctly, create a new HTML file just outside the direct
 </body>
 </html>
 ```
-
-If it works, you should see the following:
+5. Execute/Run the code. If it works, you should see the following:
 
 ![A light-blue coloured navigation bar with the links "Home" and "About" in black.](imgs/working-DOMKit-nav.png "DOMKit Test - Navigation Bar")
 
