@@ -20,13 +20,19 @@ So, I created **DOMKit**, written entirely in JavaScript. It contains a wide ran
 
 To get started with DOMKit and ensure it works for you, check out the "Getting Started guide" found <a href="https://github.com/jessicadavies2003/DOMKit/blob/main/Getting-Started.md">here</a>.
 
-If you are unsure where to begin with either getting started, or experimenting with DOMKit's range of functions, try out some test scripts in the `demo` folder of this repository.
-
-If you would like to learn about DOMKit's functionality, read the docs <a href="https://jessicadavies2003.github.io/projects/domkit-docs/">here</a>.
-
 ## Issues
 
 If you encounter any issues while using DOMKit in your projects, feel free to open an issue ticket right here on the repository, and I'll get back to you ASAP.
+
+## Providing Feedback
+
+If you have any feedback for anything about DOMKit, there are many ways to submit it.
+
+1. Via Email.
+2. Via the DOMKit Testers Survey.
+3. Via the Issues section of this repository.
+
+Find which one you'd prefer and get your feedback heard!
 
 ## Creator
 
