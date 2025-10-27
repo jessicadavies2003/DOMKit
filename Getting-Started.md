@@ -43,7 +43,16 @@ Let's create a test script to ensure DOMKit works correctly.
 
 ## Usage
 
-There are a handful of small demo projects inside this repository when you download it as a ZIP file that are ready to run! Be sure to check them out!
+There are a handful of small demo projects inside this repository when you download it as a ZIP file that are ready to run. Be sure to check them out!
+
+A simple toggle switch, switching between light and dark mode:
+
+```
+<script src="../src/domkit.elements.js"></script>
+<script>
+    const toggleWrapper = createToggle("100px", [128, 128, 128], [255, 255, 255], {'light': [[0, 0, 0], [255, 255, 255]], 'dark': [[255, 255, 255], [37, 37, 38]]}, parentID="toggle");
+</script>
+```
 
 (to be added)
 
