@@ -11,7 +11,7 @@ For instance, if you want animations on your webpage, you'd write the following:
 ```
 
 ## Testing
-Let's create a test script to ensure DOMKit works correctly!
+Let's create a test script to ensure DOMKit works correctly.
 
 1. Download this GitHub respository as a `ZIP` file.
 2. Head to your favourite IDE and create a new directory, followed by a HTML file inside that directory. We'll call it `index.html`, but you can name it as you like.
