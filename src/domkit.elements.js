@@ -189,9 +189,9 @@ const createDropdown = (dropdownName, options, label, parentID="body") => {
  * @param {String} parent ID of the parent element where the form should be added to. Defaulted to `body`.
  * @returns The HTML Form Element
  * @example
- * const signInForm = createForm("Sign In", {"Username": "text", "Password": "password"}, "20px", actionPage="action.php");
+ * const signInForm = createForm("Sign In", {"Username": "text", "Password": "password"}, "20px", {actionPage="action.php"});
 */
-const createForm = (title, inputData, gap, centerVertically=true, actionPage=null, parent="body") => {
+const createForm = (title, inputData, gap, {centerVertically=true, actionPage=null, parent="body"}) => {
     let myDiv;
     if (parent === "body") {
         myDiv = document.body;
@@ -327,4 +327,47 @@ const createToggle = (width, toggleColour, switchColour, themes, parentID="body"
     toggleWrapper.appendChild(toggle);
     myDiv.appendChild(toggleWrapper);
     return toggleWrapper;
+}
+
+/**
+ * Creates and returns a input text element for passwords, that updates as the user types, and adds it to the DOM.
+ *
+ * @param {Object} passwordRulesObj An object defining what rules to add to the box. Keys: ["minLength" (default `5`), "maxLength" (default `20`), "withNums" (default `true`), "withSpecialChars" (default `true`)]
+ * @param {String} parentID ID of the parent element where the form should be added to. Defaulted to `body`.
+ * @returns The HTML Form Element
+ * @example
+ * const passwordElement = createPasswordTextBox({"minLength": 3, "maxLength": 15});
+*/
+const createPasswordTextBox = (passwordRulesObj, {elementID="password", parentID="body"}) => {
+    let myDiv;
+    if (parent === "body") {
+        myDiv = document.body;
+    } else {
+        myDiv = document.getElementById(parentID);
+    }
+
+    const passParams = {
+        "minLength": 5,
+        "maxLength": 20,
+        "withNums": true,
+        "withSpecialChars": true
+    };
+    const givenParams = Object.keys(passwordRulesObj);
+
+    const inputEl = document.createElement("input");
+    inputEl.type = "password";
+    inputEl.id = elementID;
+    inputEl.name = elementID;
+
+    Object.keys(passParams).forEach(eachParam => {
+        if (givenParams.includes(eachParam)){
+            passParams[eachParam] = passwordRulesObj[eachParam];
+        }
+    })
+
+    inputEl.max = passParams[maxLength];
+    inputEl.min = passParams[minLength];
+    
+    myDiv.appendChild(inputEl);
+    return inputEl;
 }

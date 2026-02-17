@@ -1,5 +1,6 @@
 /*! DOMKit v1.0 | (c) 2025 Jessica Davies | https://github.com/jessicadavies2003/DOMKit/blob/main/LICENSE */
 
+// 'cssReset' is defined in multiple files. We use this to allow devs to use multiple files.
 if (typeof cssReset === 'undefined'){
     /**
      * Resets the browser's padding and margin values, so the HTML looks the same on all browsers.
@@ -167,25 +168,13 @@ const addBorder = (element, thickness, borderType, colour, borderPadding) => {
 }
 
 /**
- * Given an object of CSS styles, sets these styles to a given element.
+ * Adds text to an element that is only viewed when hovered over.
  *
- * @param {String} elementID ID of the element to be styled.
- * @param {Object} cssStylesObj An object containing various CSS attributes and your choice for each. See example for clarification.
+ * @param {HTMLElement} element The element that the border will be applied to.
+ * @param {String} text Determines the thickness of the border.
  * @example
- * setElementStyle("myButton", {"background-color": "white", "color": "black", "border": "2px double brown"});
+ * addBorder(element, "Hello world!");
 */
-const setElementStyle = (elementID, cssStylesObj) => {
-    let cssStyling = `
-#${elementID} {
-`
-
-    const allKeys = Object.keys(cssStylesObj);
-    const allValues = Object.values(cssStylesObj);
-
-    for (let i = 0; i < allKeys.length; i++){
-        cssStyling += `${allKeys[i]}: ${allValues[i]}
-`
-    }
-
-    style.textContent += cssStyling;
+const hoverOverText = (element, hoverText) => {
+    element.title = hoverText;
 }
