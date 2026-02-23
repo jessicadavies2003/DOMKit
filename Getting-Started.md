@@ -41,33 +41,6 @@ Let's create a test script to ensure DOMKit works correctly.
 
 ![A light-blue coloured navigation bar with the links "Home" and "About" in black.](imgs/working-DOMKit-nav.png "DOMKit Test - Navigation Bar")
 
-## Usage
-
-There are a handful of small demo projects inside this repository when you download it as a ZIP file that are ready to run. Be sure to check them out!
-
-A simple toggle switch, switching between a defined light and dark mode:
-
-```
-<body>
-    <div id="toggle"></div>
-
-    <script src="DOMKit-main/src/domkit.elements.js"></script>
-    <script>
-        const toggleWrapper = createToggle(
-            "75px",
-            [128, 128, 128],
-            [255, 255, 255],
-            {
-                'light': [[0, 0, 0], [255, 255, 255]],
-                'dark': [[255, 255, 255], [37, 37, 38]]
-            }, parentID="toggle"
-        );
-    </script>
-</body>
-```
-
-(to be added)
-
 ## Exploring DOMKit
 
 If you are unsure where to begin with either getting started, or experimenting with DOMKit's range of functions, try out some test scripts in the `demo` folder of this repository.
