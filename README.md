@@ -29,7 +29,7 @@ If you encounter any issues while using DOMKit in your projects, feel free to op
 If you have any feedback for anything about DOMKit, there are many ways to submit it.
 
 1. Via Email - jessydavies@hotmail.com
-3. Via the DOMKit Testers Survey (currently still WIP)
+3. Via the <a href="https://forms.cloud.microsoft/r/HPTnCXsfuq">DOMKit Library Feedback Survey</a>.
 4. Via the Issues section of this repository.
 
 Find which one you'd prefer and get your feedback heard!
