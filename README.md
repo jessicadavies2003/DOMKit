@@ -37,7 +37,7 @@ Find which one you'd prefer and get your feedback heard!
 ## Creator
 
 Jessica Davies
-- https://jessicadavies2003.github.io/
+- https://jessicadavies.dev
 
 ## Licence
 
