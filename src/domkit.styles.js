@@ -1,4 +1,9 @@
-/*! DOMKit v1.0 | (c) 2025 Jessica Davies | https://github.com/jessicadavies2003/DOMKit/blob/main/LICENSE */
+/*
+DOMKit v1.0
+Copyright (c) Jessica Davies 2025
+Licence: https://github.com/jessicadavies2003/DOMKit/blob/main/LICENSE
+Documentation: https://jessicadavies.dev/projects/domkit-docs/
+*/
 
 // 'cssReset' is defined in multiple files. We use this to allow devs to use multiple files.
 if (typeof cssReset === 'undefined'){
@@ -21,6 +26,7 @@ if (typeof cssReset === 'undefined'){
 */
 const centerEl = (element) => {
     element.style.display = "flex";
+    element.style.flexDirection = "column";
     element.style.alignItems = "center";
     element.style.justifyContent = "center";
     element.style.margin = "auto";
@@ -77,10 +83,8 @@ const gradientBG = (element, direction, gradientType, colours, textColour="black
  * @example
  * textGradient(element, [[128, 0, 0], [0, 128, 0], [0, 0, 128]]);
 */
-const textGradient = (elementID, colours) => {
-    const element = document.getElementById(elementID);
-
-    let funcCall = `-webkit-linear-gradient(90deg`;
+const textGradient = (element, colours) => {
+    let funcCall = `-webkit-linear-gradient(0deg`;
     colours.forEach((colour) => {
         funcCall += ", ";
         funcCall += `rgb(${colour[0]}, ${colour[1]}, ${colour[2]})`;

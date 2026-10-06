@@ -1,4 +1,9 @@
-/*! DOMKit v1.0 | (c) 2025 Jessica Davies | https://github.com/jessicadavies2003/DOMKit/blob/main/LICENSE */
+/*
+DOMKit v1.0
+Copyright (c) Jessica Davies 2025
+Licence: https://github.com/jessicadavies2003/DOMKit/blob/main/LICENSE
+Documentation: https://jessicadavies.dev/projects/domkit-docs/
+*/
 
 let style;
 if (document.getElementById("webStyle")) {
@@ -253,7 +258,7 @@ const createForm = (title, inputData, gap, {centerVertically=true, actionPage=nu
 */
 const createToggle = (width, toggleColour, switchColour, themes, parentID="body") => {
     let myDiv;
-    if (parent === "body") {
+    if (parentID === "body") {
         myDiv = document.body;
     } else {
         myDiv = document.getElementById(parentID);
@@ -370,4 +375,63 @@ const createPasswordTextBox = (passwordRulesObj, {elementID="password", parentID
     
     myDiv.appendChild(inputEl);
     return inputEl;
+}
+
+/**
+ * Creates and returns a <code> element, and adds it to the DOM. The element will also contain a copy button, to allow viewers to copy the code to their device's clipboard.
+ *
+ * @param {String} code The name of the form element.
+ * @param {List} background_color (OPTIONAL) A list containing three values: red, green, blue. For the background colour of the code element.
+ * @param {List} text_color (OPTIONAL) A list containing three values: red, green, blue. For the text colour of the code element.
+ * @returns HTML Code Element
+ * @example
+ * const codeElement = createCodeElement("print('hello world')", {parent: "wrapper"});
+*/
+const createCodeElement = (code, {width="90%", text_color=[255, 255, 255], background_color=[50, 50, 50], parentID="body"}) => {
+    let myDiv;
+    if (parent === "body") {
+        myDiv = document.body;
+    } else {
+        myDiv = document.getElementById(parentID);
+    }
+
+    const codeElement = document.createElement("code");
+    codeElement.textContent = code;
+    codeElement.style.backgroundColor = `rgb(${background_color[0]}, ${background_color[1]}, ${background_color[2]})`;
+    codeElement.style.color = `rgb(${text_color[0]}, ${text_color[1]}, ${text_color[2]})`;
+    codeElement.id = "code";
+
+    const copyBtn = document.createElement("button");
+    copyBtn.id = "copyBtn";
+    copyBtn.style.all = "unset";
+    copyBtn.style.cursor = "pointer";
+    style.textContent += `#code {
+    text-align: left;
+    background-color: rgb(4, 18, 38);
+    padding: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9rem;
+}
+
+#copyBtn:hover {
+    background-color: white;
+    border: 1px solid white;
+}`;
+
+    copyBtn.addEventListener("click", () => {
+        navigator.clipboard.writeText(code);
+        alert(`Copied ${code} to Clipboard!`);
+    });
+    
+
+    const copyImg = document.createElement("img");
+    copyImg.src = "../imgs/copy-black.png";
+    copyImg.style.color = `rgb(${text_color[0]}, ${text_color[1]}, ${text_color[2]})`;
+    copyImg.width = "10";
+
+    copyBtn.appendChild(copyImg);
+    codeElement.appendChild(copyBtn);
+    myDiv.appendChild(codeElement);
+
+    return codeElement;
 }

@@ -1,4 +1,9 @@
-/*! DOMKit v1.0 | (c) 2025 Jessica Davies | https://github.com/jessicadavies2003/DOMKit/blob/main/LICENSE */
+/*
+DOMKit v1.0
+Copyright (c) Jessica Davies 2025
+Licence: https://github.com/jessicadavies2003/DOMKit/blob/main/LICENSE
+Documentation: https://jessicadavies.dev/projects/domkit-docs/
+*/
 
 /**
  * Creates and returns a flexbox container.
